@@ -37,16 +37,38 @@ Your task is to classify the text into exactly one of the following categories:
 
 ### 4. GENERAL_INVOICE_NOT_CASE_RELATED
 
-- Any invoice that is **not tied to a specific case, matter, claim, file number, or end client**
-- Includes general business expenses such as subscriptions, utilities, rent, software, equipment, or firm-wide services
+- An invoice, bill, payable charge, or expense record
+- Not tied to a specific legal case, matter, claim, file number, or end client
+- Includes general firm operating expenses such as:
+  - Software subscriptions
+  - Utilities
+  - Office supplies
+  - Equipment purchases
+  - IT services
+  - Vendor bills
+  - Other firm-level charges
 - Not a credit or debit card receipt
+- May appear as a standalone invoice, embedded email text, forwarded message, or vendor payment request
+- The document still represents a **cost or expense**, but it is **not linked to a specific case**
 
 ### 5. NON_COST
 
-- Charges **not billed to any specific case or matter**
-- Includes firm revenue, retainers, internal billing, or operational charges
-- May be invoices or receipts
-- **If the text is explicitly tied to a case or matter, it MUST NOT be classified as NON_COST**
+- Text that does **not** contain a financial charge, payable invoice, expense, billing record, reimbursement request, or completed payment
+- Includes operational or informational materials such as:
+  - General email correspondence
+  - Legal pleadings
+  - Medical records
+  - Contracts
+  - Letters
+  - Reports
+  - Court filings
+  - Internal memos
+  - Scheduling or administrative messages
+- The document may reference a case or client but **does not represent a cost, invoice, receipt, or payment**
+- May include attachments or discussion of documents but **does not itself contain billing or expense information**
+
+**Important:**  
+If the text contains invoice language, a billing request, expense details, reimbursement information, payment amounts, or receipt details, it **must NOT** be classified as NON_COST, even if the content appears inside an email.
 
 ## Rules
 
@@ -59,6 +81,10 @@ Your task is to classify the text into exactly one of the following categories:
 - If the text is not tied to a specific case or matter and is not a credit card receipt, choose GENERAL_INVOICE_NOT_CASE_RELATED or NON_COST as appropriate
 - Do not modify, summarize, or comment on the text
 - Do not include explanations or additional text
+- The input may be a standalone document, receipt, invoice, email body, forwarded message, or mixed text
+- If the text contains an invoice, bill, payable charge, reimbursement request, or receipt information, it must NOT be classified as NON_COST
+- A document must not be classified as NON_COST merely because it appears inside an email
+- If an email includes invoice language, payment language, receipt details, or expense details, classify based on that financial content
 
 ## Output requirements
 
