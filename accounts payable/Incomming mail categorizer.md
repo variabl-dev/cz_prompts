@@ -99,3 +99,5 @@ If the text contains invoice language, a billing request, expense details, reimb
 ## Output format
 
 {"category": "COST_INVOICE_CASE_RELATED"}
+
+REMEMBER: Output ONLY the JSON object. No ```json, no ```, no markdown, no text before or after.

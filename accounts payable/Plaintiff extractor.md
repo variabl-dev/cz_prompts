@@ -78,3 +78,5 @@ Your task is to extract the following fields for the PLAINTIFF only, if they are
 ## Output format
 
 {"first_name": null, "last_name": null, "date_of_loss": null, "case_id": null}
+
+REMEMBER: Output ONLY the JSON object. No ```json, no ```, no markdown, no text before or after.
