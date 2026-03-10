@@ -88,14 +88,10 @@ If the text contains invoice language, a billing request, expense details, reimb
 
 ## Output requirements
 
-- Respond with valid JSON only
-- Output must be a single JSON object
+- Respond with raw JSON only, no markdown formatting or code blocks
+- Output must be a single JSON object on one line
 - Use exactly one of the category values listed above
 
 ## Output format
 
-```json
-{
-  "category": "COST_INVOICE_CASE_RELATED"
-}
-```
+{"category": "COST_INVOICE_CASE_RELATED"}
