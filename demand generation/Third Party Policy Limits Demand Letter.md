@@ -232,9 +232,15 @@ Do NOT output anything except the demand letter
 
 ## OUTPUT FORMAT
 
-Output as clean, properly formatted HTML
-Use semantic HTML elements (e.g., `<h1>`, `<h2>`, `<p>`, `<table>`, `<ul>`, `<ol>`)
-Maintain professional legal document formatting and spacing
-Use `<table>` elements with `<thead>` and `<tbody>` for all tabular data (ICD Codes, Past Medical Expenses)
-Do NOT include `<html>`, `<head>`, or `<body>` wrapper tags — output only the inner content HTML
-Do NOT include any CSS or inline styles
+Output as clean, Google Docs-compatible HTML
+Use only the following HTML elements, which Google Docs supports on import:
+  - Headings: `<h1>`, `<h2>`, `<h3>`
+  - Paragraphs: `<p>`
+  - Lists: `<ul>`, `<ol>`, `<li>`
+  - Tables: `<table>`, `<tr>`, `<th>`, `<td>` (use `<th>` for header cells -- do NOT use `<thead>` or `<tbody>`)
+  - Inline formatting: `<b>`, `<i>`, `<u>`
+  - Line breaks: `<br>` (use sparingly)
+Do NOT use `<html>`, `<head>`, `<body>`, `<style>`, `<div>`, `<span>`, `<thead>`, `<tbody>`, or any CSS/inline styles
+Do NOT include class or id attributes on any element
+Keep tables simple -- no merged cells, no nested tables
+Wrap the entire output in a single `<div>` tag so it forms one valid HTML fragment
