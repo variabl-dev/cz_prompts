@@ -232,6 +232,8 @@ Do NOT output anything except the demand letter
 
 ## OUTPUT FORMAT
 
+Your response MUST begin with `<div>` and end with `</div>` -- no introductory text, no explanations, no markdown code fences, no preamble of any kind. Output ONLY the raw HTML.
+
 Output as clean, Google Docs-compatible HTML
 Use only the following HTML elements, which Google Docs supports on import:
   - Headings: `<h1>`, `<h2>`, `<h3>`
