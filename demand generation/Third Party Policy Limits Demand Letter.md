@@ -232,6 +232,9 @@ Do NOT output anything except the demand letter
 
 ## OUTPUT FORMAT
 
-Output as clean, properly formatted text
-Maintain professional legal document formatting
-Use spacing similar to a formal demand letter
+Output as clean, properly formatted HTML
+Use semantic HTML elements (e.g., `<h1>`, `<h2>`, `<p>`, `<table>`, `<ul>`, `<ol>`)
+Maintain professional legal document formatting and spacing
+Use `<table>` elements with `<thead>` and `<tbody>` for all tabular data (ICD Codes, Past Medical Expenses)
+Do NOT include `<html>`, `<head>`, or `<body>` wrapper tags — output only the inner content HTML
+Do NOT include any CSS or inline styles
