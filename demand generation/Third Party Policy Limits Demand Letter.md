@@ -83,10 +83,11 @@ Follow this structure EXACTLY, using numbered sections and subsections as shown:
 ### Header
 
 Format the header exactly as follows, in this order:
-1. **Date** — full date (e.g., "February 13, 2026")
-2. **Sent Via Email line** — bold and italic: `Sent Via Email: [email address]`
-3. **Adjuster block** — adjuster name, insurance company name, address (each on its own line)
-4. **Re: block** — use a borderless, center-aligned table for proper column alignment:
+1. **Logo** — include the firm logo at the top left: `<img src="{{CZ_LOGO_DATA_URI}}" alt="CZ Logo" style="width: 150px; height: auto;">` — output this tag exactly as shown (the placeholder will be replaced by the system before rendering)
+2. **Date** — full date (e.g., "February 13, 2026"), **centered**: `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt; text-align: center;">[Date]</p>`
+3. **Sent Via Email line** — bold and italic: `Sent Via Email: [email address]`
+4. **Adjuster block** — adjuster name, insurance company name, address (each on its own line)
+5. **Re: block** — use a borderless, center-aligned table for proper column alignment:
    ```
    <table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none;">
      <tr><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Re:</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Our Client</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Name]</td></tr>
@@ -98,8 +99,8 @@ Format the header exactly as follows, in this order:
    Do NOT add borders to this table — it should appear as aligned text, not a visible table
    The table MUST include `align="center"` to center it on the page
    The table and ALL `<td>` cells MUST include `border: none` in their inline styles — Google Docs renders table borders by default, so you must explicitly suppress them
-5. **Title** — centered, bold, underlined: "POLICY LIMIT/TIME LIMIT DEMAND"
-6. **Salutation** — "Dear Mr./Ms. [Last Name]:"
+6. **Title** — centered, bold, underlined: "POLICY LIMIT/TIME LIMIT DEMAND"
+7. **Salutation** — "Dear Mr./Ms. [Last Name]:"
 
 ---
 
