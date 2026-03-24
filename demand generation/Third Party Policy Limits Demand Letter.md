@@ -59,57 +59,66 @@ If information is missing, omit it naturally
 
 ## REQUIRED STRUCTURE
 
-Follow this structure EXACTLY:
+Follow this structure EXACTLY, using numbered sections and subsections as shown:
 
-1. Header
+1. Header (Date, Sent Via Email line, Adjuster block, Re: block, Title, Salutation)
 2. Introduction
-3. Facts
-4. Liability
-5. Injuries & Treatment
-6. ICD Codes
-7. Objective Tests
-8. Invasive Treatments (if applicable)
-9. Damages
-   - Past Medical Expenses
-   - Future Medical Expenses
-   - Pain & Suffering
-10. Conclusion (Policy Limits Demand Language)
-11. Exhibit List
+3. Section 1 — Facts
+4. Section 2 — Liability
+5. Section 3 — Injuries & Treatment
+   - Subsection 3.1 — ICD Codes
+   - Subsection 3.2 — Invasive Treatments (if applicable)
+6. Section 4 — Damages
+   - Subsection 4.1 — Past Medical Expenses
+   - Subsection 4.2 — Future Medical Expenses
+   - Subsection 4.3 — Pain & Suffering
+7. Section 5 — Conclusion (Policy Limits Demand Language)
+8. Closing (Very truly yours, firm name, attorney name, initials, Enclosures)
+9. Exhibit List
 
 ---
 
 ## SECTION RULES
 
 ### Header
-Include adjuster name, insurance company, address
-Include:
-  - Our Client
-  - Your Insured
-  - Claim Number
-  - Date of Loss
+
+Format the header exactly as follows, in this order:
+1. **Date** — full date (e.g., "February 13, 2026")
+2. **Sent Via Email line** — bold and italic: `Sent Via Email: [email address]`
+3. **Adjuster block** — adjuster name, insurance company name, address (each on its own line)
+4. **Re: block** — formatted as an aligned block with colons:
+   - Re: Our Client : [Name]
+   - Your Insured : [Name]
+   - Claim No. : [Number]
+   - Date of Loss : [Date]
+5. **Title** — centered, bold, underlined: "POLICY LIMIT/TIME LIMIT DEMAND"
+6. **Salutation** — "Dear Mr./Ms. [Last Name]:"
 
 ---
 
 ### Introduction
 State purpose of letter (settlement demand)
 Include Evidence Code § 1152 language
+This is NOT a numbered section — it appears between the salutation and Section 1
 
 ---
 
-### Facts
+### 1. Facts
 Describe accident clearly and chronologically
 Use only verified facts from records
 
 ---
 
-### Liability
+### 2. Liability
 Clearly establish fault
 Reference police reports, citations, or statutes if available
+Bold statutory references (e.g., **Cal. Veh. Code § 22350**)
+Use a bold/underlined/italic opening statement establishing liability is clear (matching the tone of the reference document)
 Do not speculate
 
 ---
 
-### Injuries & Treatment
+### 3. Injuries & Treatment
 Start with a summary of injuries
 Then proceed chronologically through treatment
 Include:
@@ -119,14 +128,13 @@ Include:
   - Findings
   - Treatment plans
 Use detailed medical language when available
+Integrate objective test findings (MRI, X-ray, etc.) directly into the chronological treatment narrative rather than in a separate section
 
----
-
-### ICD Codes
+#### 3.1. ICD Codes
 
 Extract ICD codes if present in records
 Present the information in a **table format with three columns**:
-  - Column 1: ICD Codes
+  - Column 1: ICD Code (bold)
   - Column 2: Description
   - Column 3: Exhibit References
 Each row should represent a single ICD code
@@ -134,50 +142,41 @@ Include exhibit references using the format: (Exhibit X - p. Y)
 Only include codes explicitly found in the records
 Do not infer or generate ICD codes if not present
 
----
-
-### Objective Tests
-Include imaging/tests (MRI, X-ray, etc.)
-Include:
-  - Test name
-  - Date
-  - Provider
-  - Findings
-
----
-
-### Invasive Treatments
+#### 3.2. Invasive Treatments
 Include only if clearly present
-Include:
-  - Treatment name
-  - Date
-  - Provider
-  - Description
+Format as a bullet list with sub-bullets for each treatment:
+  - **Treatment name** (bold, top-level bullet)
+    - Date of Service: [date]
+    - Provider: [name] at [facility]
+    - Description: [detailed procedure description with exhibit reference]
 
 ---
 
-### Damages
+### 4. Damages
 
-#### Past Medical Expenses
+#### 4.1. Past Medical Expenses
 
-Present all past medical expenses in a **table format with five columns**:
+Present all past medical expenses in a **table format with four columns**:
   - Column 1: Provider
   - Column 2: Treatment Period
-  - Column 3: Number of Visits
-  - Column 4: Total Charge Amount
-  - Column 5: Exhibit Reference
+  - Column 3: Total Charge Amount
+  - Column 4: Exhibit Reference
 Each row should represent a single provider
 Include exhibit references using the format: (Exhibit X - p. Y)
 Include total charges per provider where available
-Include number of visits if explicitly stated; do not infer
-Include a final total sum if available from the records
+Include a **Total** row at the bottom summing all charges
 Do not estimate or generate missing financial data
 
-#### Future Medical Expenses
+#### 4.2. Future Medical Expenses
 Include only documented recommendations
+Format as a bullet list — each bullet should include:
+  - Date of recommendation
+  - Recommending provider and credentials
+  - **Bold the recommended treatment/procedure name**
+  - Brief clinical rationale from the records
 Do NOT speculate
 
-#### Pain & Suffering
+#### 4.3. Pain & Suffering
 Write a compelling, human-centered narrative
 Describe:
   - Functional limitations
@@ -187,12 +186,27 @@ Keep grounded in documented facts
 
 ---
 
-### Conclusion (Policy Limits Demand)
+### 5. Conclusion (Policy Limits Demand)
 
-Include strong policy limits demand language
-Include conditional settlement language
-Include time limit if available
-Maintain legal tone consistent with example
+Include strong conditional policy limits demand language structured as follows:
+1. Opening paragraph stating the demand is conditioned on the insured providing a declaration under penalty of perjury by a deadline, followed by a numbered list of required representations (no other auto insurance, no umbrella coverage, no excess coverage, employment/errand scope, real property equity)
+2. Paragraph about consequences of false representations (material breach, setting aside settlement)
+3. Paragraph listing conditions precedent the adjuster must perform by the deadline, as a numbered list (deliver check for policy limits, deliver policy copies, deliver release forms, deliver claims/investigation reports, communication requirements, written-only compliance requirement)
+4. "Time is of the essence" paragraph about failure to comply
+5. Paragraph about client's responsibility for liens if settled
+6. Paragraph about strict compliance and litigation warning
+7. "Good faith effort" closing paragraph
+
+---
+
+### Closing
+
+After the conclusion, include:
+1. "Very truly yours,"
+2. Firm name in caps (e.g., "CARPENTER & ZUCKERMAN")
+3. Attorney name
+4. Attorney initials/typist initials (e.g., "PSZ/iml")
+5. "Enclosures"
 
 ---
 
@@ -204,10 +218,10 @@ Reference exhibits throughout the document where applicable:
 
 ### Exhibit List (End of Document)
 
-Include a numbered list of all selected exhibits
-Format:
-  - Exhibit Number
-  - Description (derived from document name or summary)
+Present as a **table with two columns**:
+  - Column 1: No. (exhibit number)
+  - Column 2: Description (derived from document name or summary)
+Each row should represent a single exhibit
 
 ---
 
@@ -237,14 +251,17 @@ Do NOT output anything except the demand letter
 Your response MUST begin with `<div>` and end with `</div>` -- no introductory text, no explanations, no markdown code fences, no preamble of any kind. Output ONLY the raw HTML.
 
 Output as clean, Google Docs-compatible HTML
+Wrap the entire output in a single `<div style="font-family: 'Times New Roman', serif;">` tag so it forms one valid HTML fragment and the entire document renders in Times New Roman
 Use only the following HTML elements, which Google Docs supports on import:
-  - Headings: `<h1>`, `<h2>`, `<h3>`
+  - Headings: `<h2>`, `<h3>` (use `<h2>` for main section titles like "1. FACTS", use `<h3>` for subsections like "3.1. ICD Codes")
   - Paragraphs: `<p>`
   - Lists: `<ul>`, `<ol>`, `<li>`
   - Tables: `<table>`, `<tr>`, `<th>`, `<td>` (use `<th>` for header cells -- do NOT use `<thead>` or `<tbody>`)
   - Inline formatting: `<b>`, `<i>`, `<u>`
   - Line breaks: `<br>` (use sparingly)
-Do NOT use `<html>`, `<head>`, `<body>`, `<style>`, `<div>`, `<span>`, `<thead>`, `<tbody>`, or any CSS/inline styles
+Do NOT use `<html>`, `<head>`, `<body>`, `<style>`, `<span>`, `<thead>`, `<tbody>`
 Do NOT include class or id attributes on any element
+The ONLY inline style allowed is `font-family` on the wrapper `<div>` — do NOT use any other inline styles
 Keep tables simple -- no merged cells, no nested tables
-Wrap the entire output in a single `<div>` tag so it forms one valid HTML fragment
+Section headings should use numbered format matching the document structure (e.g., "1. Facts", "2. Liability", "3.1. ICD Codes")
+Use small-caps styling for section headings by rendering them in uppercase bold (e.g., `<h2><b>1. FACTS</b></h2>`)
