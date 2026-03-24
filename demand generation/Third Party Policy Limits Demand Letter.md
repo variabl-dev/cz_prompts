@@ -86,11 +86,16 @@ Format the header exactly as follows, in this order:
 1. **Date** — full date (e.g., "February 13, 2026")
 2. **Sent Via Email line** — bold and italic: `Sent Via Email: [email address]`
 3. **Adjuster block** — adjuster name, insurance company name, address (each on its own line)
-4. **Re: block** — formatted as an aligned block with colons:
-   - Re: Our Client : [Name]
-   - Your Insured : [Name]
-   - Claim No. : [Number]
-   - Date of Loss : [Date]
+4. **Re: block** — use a borderless table for proper column alignment:
+   ```
+   <table>
+     <tr><td>Re:</td><td>Our Client</td><td>:</td><td>[Name]</td></tr>
+     <tr><td></td><td>Your Insured</td><td>:</td><td>[Name]</td></tr>
+     <tr><td></td><td>Claim No.</td><td>:</td><td>[Number]</td></tr>
+     <tr><td></td><td>Date of Loss</td><td>:</td><td>[Date]</td></tr>
+   </table>
+   ```
+   Do NOT add borders to this table — it should appear as aligned text, not a visible table
 5. **Title** — centered, bold, underlined: "POLICY LIMIT/TIME LIMIT DEMAND"
 6. **Salutation** — "Dear Mr./Ms. [Last Name]:"
 
@@ -272,8 +277,8 @@ Do NOT include HTML tags in this value — plain text only. This will be inserte
 
 The full demand letter as Google Docs-compatible HTML.
 Wrap the entire content in a single `<div style="font-family: 'Times New Roman', serif;">` tag.
+Do NOT use heading tags (`<h1>`, `<h2>`, `<h3>`, etc.) — they render at a larger font size. Instead, use `<p>` tags with bold formatting for all section titles so they match the body text size.
 Use only the following HTML elements:
-  - Headings: `<h2>`, `<h3>` (use `<h2>` for main section titles, use `<h3>` for subsections)
   - Paragraphs: `<p style="margin-bottom: 12pt;">` — ALL `<p>` tags MUST include `style="margin-bottom: 12pt;"` to ensure proper spacing between paragraphs
   - Lists: `<ul>`, `<ol>`, `<li>`
   - Tables: `<table>`, `<tr>`, `<th>`, `<td>` (use `<th>` for header cells -- do NOT use `<thead>` or `<tbody>`)
@@ -296,13 +301,13 @@ Do NOT include HTML tags in this value — plain text only. This will be inserte
 
 ### Section Numbering
 
-Section headings must use this exact format with `<h2>` tags:
-  - `<h2><b>1. &nbsp;&nbsp;F<small>ACTS</small></b></h2>` — first letter full-size, remaining letters in `<small>` uppercase
-  - `<h2><b>2. &nbsp;&nbsp;L<small>IABILITY</small></b></h2>`
-  - `<h2><b>3. &nbsp;&nbsp;I<small>NJURIES</small> &amp; T<small>REATMENT</small></b></h2>`
-  - `<h2><b>4. &nbsp;&nbsp;D<small>AMAGES</small></b></h2>`
-  - `<h2><b>5. &nbsp;&nbsp;C<small>ONCLUSION</small></b></h2>`
+Section headings must use `<p>` tags (NOT heading tags) with bold formatting, at the same font size as body text:
+  - `<p style="margin-bottom: 12pt;"><b>1. &nbsp;&nbsp;F<small>ACTS</small></b></p>` — first letter full-size, remaining letters in `<small>` uppercase
+  - `<p style="margin-bottom: 12pt;"><b>2. &nbsp;&nbsp;L<small>IABILITY</small></b></p>`
+  - `<p style="margin-bottom: 12pt;"><b>3. &nbsp;&nbsp;I<small>NJURIES</small> &amp; T<small>REATMENT</small></b></p>`
+  - `<p style="margin-bottom: 12pt;"><b>4. &nbsp;&nbsp;D<small>AMAGES</small></b></p>`
+  - `<p style="margin-bottom: 12pt;"><b>5. &nbsp;&nbsp;C<small>ONCLUSION</small></b></p>`
 
-Subsection headings use `<h3>` with bold text:
-  - `<h3><b>3.1. &nbsp;&nbsp;ICD Codes</b></h3>`
-  - `<h3><b>4.1. &nbsp;&nbsp;Past Medical Expenses</b></h3>`
+Subsection headings also use `<p>` with bold text:
+  - `<p style="margin-bottom: 12pt;"><b>3.1. &nbsp;&nbsp;ICD Codes</b></p>`
+  - `<p style="margin-bottom: 12pt;"><b>4.1. &nbsp;&nbsp;Past Medical Expenses</b></p>`
