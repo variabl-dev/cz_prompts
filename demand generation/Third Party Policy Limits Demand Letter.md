@@ -243,6 +243,7 @@ Do NOT create facts not explicitly supported
 Do NOT include generic filler language
 Do NOT mention internal systems (LITIFY, folders, OCR)
 Do NOT output anything except the demand letter
+Do NOT use markdown syntax (e.g., `**bold**`, `*italic*`) in the output — use only HTML tags (`<b>`, `<i>`, `<u>`) for all formatting
 
 ---
 
@@ -253,15 +254,49 @@ Your response MUST begin with `<div>` and end with `</div>` -- no introductory t
 Output as clean, Google Docs-compatible HTML
 Wrap the entire output in a single `<div style="font-family: 'Times New Roman', serif;">` tag so it forms one valid HTML fragment and the entire document renders in Times New Roman
 Use only the following HTML elements, which Google Docs supports on import:
-  - Headings: `<h2>`, `<h3>` (use `<h2>` for main section titles like "1. FACTS", use `<h3>` for subsections like "3.1. ICD Codes")
-  - Paragraphs: `<p>`
+  - Headings: `<h2>`, `<h3>` (use `<h2>` for main section titles, use `<h3>` for subsections)
+  - Paragraphs: `<p style="margin-bottom: 12pt;">` — ALL `<p>` tags MUST include `style="margin-bottom: 12pt;"` to ensure proper spacing between paragraphs
   - Lists: `<ul>`, `<ol>`, `<li>`
   - Tables: `<table>`, `<tr>`, `<th>`, `<td>` (use `<th>` for header cells -- do NOT use `<thead>` or `<tbody>`)
   - Inline formatting: `<b>`, `<i>`, `<u>`
   - Line breaks: `<br>` (use sparingly)
 Do NOT use `<html>`, `<head>`, `<body>`, `<style>`, `<span>`, `<thead>`, `<tbody>`
 Do NOT include class or id attributes on any element
-The ONLY inline style allowed is `font-family` on the wrapper `<div>` — do NOT use any other inline styles
+Inline styles are allowed ONLY for: `font-family` on the wrapper `<div>`, and `margin-bottom: 12pt` on `<p>` tags — do NOT use any other inline styles
 Keep tables simple -- no merged cells, no nested tables
-Section headings should use numbered format matching the document structure (e.g., "1. Facts", "2. Liability", "3.1. ICD Codes")
-Use small-caps styling for section headings by rendering them in uppercase bold (e.g., `<h2><b>1. FACTS</b></h2>`)
+
+### Page Header & Footer
+
+Every page of the output should include a repeating page header and footer. Since HTML does not natively support page headers/footers, simulate them as follows:
+
+**Page header** (appears at the top of page 2 onward in the printed/PDF output):
+Include a block at logical page breaks with:
+```
+Claim No.: [claim number]
+[Date of letter]
+Page [X] of [Y]
+```
+Format as a small, left-aligned block using `<p>` tags with smaller text. Place these at natural page-break points throughout the document (roughly every 400-500 words of content after page 1).
+
+**Page footer** (appears at the bottom of every page):
+The firm footer should appear at the end of the document:
+```
+CARPENTER & ZUCKERMAN
+8827 W. Olympic Blvd., Beverly Hills, CA 90211  T 310-273-1230  F 310-858-1063
+```
+Format the firm name in small-caps style (uppercase) and center-align the footer block.
+
+### Section Numbering
+
+Do NOT use Arabic numerals (1, 2, 3) for section headings. Instead, match the reference document format exactly:
+
+Section headings must use this exact format with `<h2>` tags:
+  - `<h2><b>1. &nbsp;&nbsp;F<small>ACTS</small></b></h2>` — first letter full-size, remaining letters in `<small>` uppercase
+  - `<h2><b>2. &nbsp;&nbsp;L<small>IABILITY</small></b></h2>`
+  - `<h2><b>3. &nbsp;&nbsp;I<small>NJURIES</small> &amp; T<small>REATMENT</small></b></h2>`
+  - `<h2><b>4. &nbsp;&nbsp;D<small>AMAGES</small></b></h2>`
+  - `<h2><b>5. &nbsp;&nbsp;C<small>ONCLUSION</small></b></h2>`
+
+Subsection headings use `<h3>` with bold text:
+  - `<h3><b>3.1. &nbsp;&nbsp;ICD Codes</b></h3>`
+  - `<h3><b>4.1. &nbsp;&nbsp;Past Medical Expenses</b></h3>`
