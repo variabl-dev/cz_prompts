@@ -88,15 +88,16 @@ Format the header exactly as follows, in this order:
 3. **Adjuster block** — adjuster name, insurance company name, address (each on its own line)
 4. **Re: block** — use a borderless, center-aligned table for proper column alignment:
    ```
-   <table align="center">
-     <tr><td style="font-family: 'Times New Roman', serif;">Re:</td><td style="font-family: 'Times New Roman', serif;">Our Client</td><td style="font-family: 'Times New Roman', serif;">:</td><td style="font-family: 'Times New Roman', serif;">[Name]</td></tr>
-     <tr><td style="font-family: 'Times New Roman', serif;"></td><td style="font-family: 'Times New Roman', serif;">Your Insured</td><td style="font-family: 'Times New Roman', serif;">:</td><td style="font-family: 'Times New Roman', serif;">[Name]</td></tr>
-     <tr><td style="font-family: 'Times New Roman', serif;"></td><td style="font-family: 'Times New Roman', serif;">Claim No.</td><td style="font-family: 'Times New Roman', serif;">:</td><td style="font-family: 'Times New Roman', serif;">[Number]</td></tr>
-     <tr><td style="font-family: 'Times New Roman', serif;"></td><td style="font-family: 'Times New Roman', serif;">Date of Loss</td><td style="font-family: 'Times New Roman', serif;">:</td><td style="font-family: 'Times New Roman', serif;">[Date]</td></tr>
+   <table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none;">
+     <tr><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Re:</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Our Client</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Name]</td></tr>
+     <tr><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;"></td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Your Insured</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Name]</td></tr>
+     <tr><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;"></td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Claim No.</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Number]</td></tr>
+     <tr><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;"></td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Date of Loss</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Date]</td></tr>
    </table>
    ```
    Do NOT add borders to this table — it should appear as aligned text, not a visible table
    The table MUST include `align="center"` to center it on the page
+   The table and ALL `<td>` cells MUST include `border: none` in their inline styles — Google Docs renders table borders by default, so you must explicitly suppress them
 5. **Title** — centered, bold, underlined: "POLICY LIMIT/TIME LIMIT DEMAND"
 6. **Salutation** — "Dear Mr./Ms. [Last Name]:"
 
