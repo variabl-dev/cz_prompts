@@ -89,7 +89,7 @@ Format the header exactly as follows, in this order:
 4. **Adjuster block** — adjuster name, insurance company name, address (each on its own line)
 5. **Re: block** — use a borderless, center-aligned table for proper column alignment:
    ```
-   <table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none;">
+   <table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; width: auto;">
      <tr><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Re:</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Our Client</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Name]</td></tr>
      <tr><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;"></td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Your Insured</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Name]</td></tr>
      <tr><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;"></td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Claim No.</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Number]</td></tr>
@@ -99,6 +99,7 @@ Format the header exactly as follows, in this order:
    Do NOT add borders to this table — it should appear as aligned text, not a visible table
    The table MUST include `align="center"` to center it on the page
    The table and ALL `<td>` cells MUST include `border: none` in their inline styles — Google Docs renders table borders by default, so you must explicitly suppress them
+   The table MUST include `width: auto` so columns shrink to fit their text content — do NOT let the table stretch to full page width
 6. **Title** — centered, bold, underlined: "POLICY LIMIT/TIME LIMIT DEMAND"
 7. **Salutation** — "Dear Mr./Ms. [Last Name]:"
 
