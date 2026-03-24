@@ -86,16 +86,17 @@ Format the header exactly as follows, in this order:
 1. **Date** — full date (e.g., "February 13, 2026")
 2. **Sent Via Email line** — bold and italic: `Sent Via Email: [email address]`
 3. **Adjuster block** — adjuster name, insurance company name, address (each on its own line)
-4. **Re: block** — use a borderless table for proper column alignment:
+4. **Re: block** — use a borderless, center-aligned table for proper column alignment:
    ```
-   <table>
-     <tr><td>Re:</td><td>Our Client</td><td>:</td><td>[Name]</td></tr>
-     <tr><td></td><td>Your Insured</td><td>:</td><td>[Name]</td></tr>
-     <tr><td></td><td>Claim No.</td><td>:</td><td>[Number]</td></tr>
-     <tr><td></td><td>Date of Loss</td><td>:</td><td>[Date]</td></tr>
+   <table align="center">
+     <tr><td style="font-family: 'Times New Roman', serif;">Re:</td><td style="font-family: 'Times New Roman', serif;">Our Client</td><td style="font-family: 'Times New Roman', serif;">:</td><td style="font-family: 'Times New Roman', serif;">[Name]</td></tr>
+     <tr><td style="font-family: 'Times New Roman', serif;"></td><td style="font-family: 'Times New Roman', serif;">Your Insured</td><td style="font-family: 'Times New Roman', serif;">:</td><td style="font-family: 'Times New Roman', serif;">[Name]</td></tr>
+     <tr><td style="font-family: 'Times New Roman', serif;"></td><td style="font-family: 'Times New Roman', serif;">Claim No.</td><td style="font-family: 'Times New Roman', serif;">:</td><td style="font-family: 'Times New Roman', serif;">[Number]</td></tr>
+     <tr><td style="font-family: 'Times New Roman', serif;"></td><td style="font-family: 'Times New Roman', serif;">Date of Loss</td><td style="font-family: 'Times New Roman', serif;">:</td><td style="font-family: 'Times New Roman', serif;">[Date]</td></tr>
    </table>
    ```
    Do NOT add borders to this table — it should appear as aligned text, not a visible table
+   The table MUST include `align="center"` to center it on the page
 5. **Title** — centered, bold, underlined: "POLICY LIMIT/TIME LIMIT DEMAND"
 6. **Salutation** — "Dear Mr./Ms. [Last Name]:"
 
@@ -276,17 +277,19 @@ Do NOT include HTML tags in this value — plain text only. This will be inserte
 ### `body` key
 
 The full demand letter as Google Docs-compatible HTML.
-Wrap the entire content in a single `<div style="font-family: 'Times New Roman', serif;">` tag.
+Wrap the entire content in a single `<div>` tag (no styles on the div).
 Do NOT use heading tags (`<h1>`, `<h2>`, `<h3>`, etc.) — they render at a larger font size. Instead, use `<p>` tags with bold formatting for all section titles so they match the body text size.
 Use only the following HTML elements:
-  - Paragraphs: `<p style="margin-bottom: 12pt;">` — ALL `<p>` tags MUST include `style="margin-bottom: 12pt;"` to ensure proper spacing between paragraphs
+  - Paragraphs: `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;">` — ALL `<p>` tags MUST include BOTH `font-family: 'Times New Roman', serif` AND `margin-bottom: 12pt` in their style attribute
   - Lists: `<ul>`, `<ol>`, `<li>`
   - Tables: `<table>`, `<tr>`, `<th>`, `<td>` (use `<th>` for header cells -- do NOT use `<thead>` or `<tbody>`)
   - Inline formatting: `<b>`, `<i>`, `<u>`
   - Line breaks: `<br>` (use sparingly)
-Do NOT use `<html>`, `<head>`, `<body>`, `<style>`, `<span>`, `<thead>`, `<tbody>`
+Do NOT use `<html>`, `<head>`, `<body>`, `<style>`, `<span>`, `<thead>`, `<tbody>`, `<small>`
 Do NOT include class or id attributes on any element
-Inline styles are allowed ONLY for: `font-family` on the wrapper `<div>`, and `margin-bottom: 12pt` on `<p>` tags — do NOT use any other inline styles
+Every `<p>` tag MUST have `style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"` — this is critical because the Drive API import strips styles from wrapper elements
+For table cells (`<td>`, `<th>`), also include `style="font-family: 'Times New Roman', serif;"` to ensure consistent font
+For list items (`<li>`), also include `style="font-family: 'Times New Roman', serif;"` to ensure consistent font
 Keep tables simple -- no merged cells, no nested tables
 Do NOT include page header/footer content in the body — those go in the `header` and `footer` keys
 
@@ -301,13 +304,15 @@ Do NOT include HTML tags in this value — plain text only. This will be inserte
 
 ### Section Numbering
 
-Section headings must use `<p>` tags (NOT heading tags) with bold formatting, at the same font size as body text:
-  - `<p style="margin-bottom: 12pt;"><b>1. &nbsp;&nbsp;F<small>ACTS</small></b></p>` — first letter full-size, remaining letters in `<small>` uppercase
-  - `<p style="margin-bottom: 12pt;"><b>2. &nbsp;&nbsp;L<small>IABILITY</small></b></p>`
-  - `<p style="margin-bottom: 12pt;"><b>3. &nbsp;&nbsp;I<small>NJURIES</small> &amp; T<small>REATMENT</small></b></p>`
-  - `<p style="margin-bottom: 12pt;"><b>4. &nbsp;&nbsp;D<small>AMAGES</small></b></p>`
-  - `<p style="margin-bottom: 12pt;"><b>5. &nbsp;&nbsp;C<small>ONCLUSION</small></b></p>`
+Section headings must use `<p>` tags (NOT heading tags) with bold uppercase text, at the SAME font size as body text:
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>1. FACTS</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>2. LIABILITY</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>3. INJURIES &amp; TREATMENT</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4. DAMAGES</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>5. CONCLUSION</b></p>`
+
+Do NOT use `<small>` tags — they shrink the text. Just use regular uppercase letters.
 
 Subsection headings also use `<p>` with bold text:
-  - `<p style="margin-bottom: 12pt;"><b>3.1. &nbsp;&nbsp;ICD Codes</b></p>`
-  - `<p style="margin-bottom: 12pt;"><b>4.1. &nbsp;&nbsp;Past Medical Expenses</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>3.1. ICD Codes</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4.1. Past Medical Expenses</b></p>`
