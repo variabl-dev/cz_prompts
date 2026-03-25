@@ -87,24 +87,17 @@ Format the header exactly as follows, in this order:
 2. **Date** — full date (e.g., "February 13, 2026"), **centered**: `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt; text-align: center;">[Date]</p>`
 3. **Sent Via Email line** — bold and italic: `Sent Via Email: [email address]`
 4. **Adjuster block** — adjuster name, insurance company name, address (each on its own line)
-5. **Re: block** — use a centered table with explicit narrow column widths so it displays as a compact grid, not stretched across the page:
+5. **Re: block** — do NOT use a table. Use left-aligned `<p>` tags where each line combines the label, colon, and value on a single line using tab characters (`&#9;`) for spacing:
    ```
-   <table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none;">
-     <colgroup>
-       <col style="width: 30px;">
-       <col style="width: 90px;">
-       <col style="width: 10px;">
-       <col style="width: 180px;">
-     </colgroup>
-     <tr><td style="font-family: 'Times New Roman', serif; border: none;">Re:</td><td style="font-family: 'Times New Roman', serif; border: none;">Our Client</td><td style="font-family: 'Times New Roman', serif; border: none;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Name]</td></tr>
-     <tr><td style="font-family: 'Times New Roman', serif; border: none;"></td><td style="font-family: 'Times New Roman', serif; border: none;">Your Insured</td><td style="font-family: 'Times New Roman', serif; border: none;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Name]</td></tr>
-     <tr><td style="font-family: 'Times New Roman', serif; border: none;"></td><td style="font-family: 'Times New Roman', serif; border: none;">Claim No.</td><td style="font-family: 'Times New Roman', serif; border: none;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Number]</td></tr>
-     <tr><td style="font-family: 'Times New Roman', serif; border: none;"></td><td style="font-family: 'Times New Roman', serif; border: none;">Date of Loss</td><td style="font-family: 'Times New Roman', serif; border: none;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Date]</td></tr>
-   </table>
+   <p style="font-family: 'Times New Roman', serif; margin-bottom: 0;">Re:&#9;Our Client&#9;:&#9;[Name]</p>
+   <p style="font-family: 'Times New Roman', serif; margin-bottom: 0;">&#9;Your Insured&#9;:&#9;[Name]</p>
+   <p style="font-family: 'Times New Roman', serif; margin-bottom: 0;">&#9;Claim No.&#9;:&#9;[Number]</p>
+   <p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;">&#9;Date of Loss&#9;:&#9;[Date]</p>
    ```
-   Use `<colgroup>` with explicit pixel widths to keep columns tight to the text
-   ALL `<td>` cells MUST include `border: none` — Google Docs renders borders by default
-   Do NOT omit the `<colgroup>` — without it Google Docs will stretch columns to full page width
+   Do NOT use `<table>` for the Re: block — Google Docs mangles table column widths during HTML import
+   The Re: block must be LEFT-ALIGNED (not centered) to match the rest of the header
+   Use `&#9;` (tab character) between the label, colon, and value to create column-like spacing
+   Use `margin-bottom: 0` on all lines except the last to keep the block compact
 6. **Title** — centered, bold, underlined: "POLICY LIMIT/TIME LIMIT DEMAND"
 7. **Salutation** — "Dear Mr./Ms. [Last Name]:"
 
