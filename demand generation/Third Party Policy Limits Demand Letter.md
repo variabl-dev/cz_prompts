@@ -87,19 +87,24 @@ Format the header exactly as follows, in this order:
 2. **Date** — full date (e.g., "February 13, 2026"), **centered**: `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt; text-align: center;">[Date]</p>`
 3. **Sent Via Email line** — bold and italic: `Sent Via Email: [email address]`
 4. **Adjuster block** — adjuster name, insurance company name, address (each on its own line)
-5. **Re: block** — use a borderless, center-aligned table for proper column alignment:
+5. **Re: block** — use a centered table with explicit narrow column widths so it displays as a compact grid, not stretched across the page:
    ```
-   <table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; width: auto;">
-     <tr><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Re:</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Our Client</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Name]</td></tr>
-     <tr><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;"></td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Your Insured</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Name]</td></tr>
-     <tr><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;"></td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Claim No.</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Number]</td></tr>
-     <tr><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;"></td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">Date of Loss</td><td style="font-family: 'Times New Roman', serif; border: none; padding-right: 8px;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Date]</td></tr>
+   <table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none;">
+     <colgroup>
+       <col style="width: 30px;">
+       <col style="width: 90px;">
+       <col style="width: 10px;">
+       <col style="width: 180px;">
+     </colgroup>
+     <tr><td style="font-family: 'Times New Roman', serif; border: none;">Re:</td><td style="font-family: 'Times New Roman', serif; border: none;">Our Client</td><td style="font-family: 'Times New Roman', serif; border: none;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Name]</td></tr>
+     <tr><td style="font-family: 'Times New Roman', serif; border: none;"></td><td style="font-family: 'Times New Roman', serif; border: none;">Your Insured</td><td style="font-family: 'Times New Roman', serif; border: none;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Name]</td></tr>
+     <tr><td style="font-family: 'Times New Roman', serif; border: none;"></td><td style="font-family: 'Times New Roman', serif; border: none;">Claim No.</td><td style="font-family: 'Times New Roman', serif; border: none;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Number]</td></tr>
+     <tr><td style="font-family: 'Times New Roman', serif; border: none;"></td><td style="font-family: 'Times New Roman', serif; border: none;">Date of Loss</td><td style="font-family: 'Times New Roman', serif; border: none;">:</td><td style="font-family: 'Times New Roman', serif; border: none;">[Date]</td></tr>
    </table>
    ```
-   Do NOT add borders to this table — it should appear as aligned text, not a visible table
-   The table MUST include `align="center"` to center it on the page
-   The table and ALL `<td>` cells MUST include `border: none` in their inline styles — Google Docs renders table borders by default, so you must explicitly suppress them
-   The table MUST include `width: auto` so columns shrink to fit their text content — do NOT let the table stretch to full page width
+   Use `<colgroup>` with explicit pixel widths to keep columns tight to the text
+   ALL `<td>` cells MUST include `border: none` — Google Docs renders borders by default
+   Do NOT omit the `<colgroup>` — without it Google Docs will stretch columns to full page width
 6. **Title** — centered, bold, underlined: "POLICY LIMIT/TIME LIMIT DEMAND"
 7. **Salutation** — "Dear Mr./Ms. [Last Name]:"
 
