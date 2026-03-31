@@ -244,7 +244,7 @@ Title "Exhibit List" centered above the table (use Subtitle style / `<h2>` cente
 
 Present as a **centered table with visible borders** and two columns:
   - Column 1: **No.** (~19% width) — exhibit number, centered
-  - Column 2: **Description** (~81% width) — provider name (e.g., "Elite Medical Clinic", "Riverside Community Hospital")
+  - Column 2: **Description** (~81% width) — provider name ONLY (e.g., "Elite Medical Clinic", "Riverside Community Hospital"). Do NOT append "Itemized Bill", "Medical Records", or any other document type descriptor — just the provider name.
   - **Header row**: bold text with light gray background (`#F1F1F1` / `background-color: #f1f1f1`)
   - **All cells**: visible borders (do NOT use `border: none` — this table should have borders, unlike the Re: block)
   - **Table alignment**: centered on the page
