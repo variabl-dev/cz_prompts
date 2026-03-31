@@ -59,22 +59,25 @@ If information is missing, omit it naturally
 
 ## REQUIRED STRUCTURE
 
-Follow this structure EXACTLY, using numbered sections and subsections as shown:
+Follow this structure EXACTLY (note: section headings in the output should NOT be numbered):
 
 1. Header (Date, Sent Via Email line, Adjuster block, Re: block, Title, Salutation)
 2. Introduction
-3. Section 1 — Facts
-4. Section 2 — Liability
-5. Section 3 — Injuries & Treatment
-   - Subsection 3.1 — ICD Codes
-   - Subsection 3.2 — Invasive Treatments (if applicable)
-6. Section 4 — Damages
-   - Subsection 4.1 — Past Medical Expenses
-   - Subsection 4.2 — Future Medical Expenses
-   - Subsection 4.3 — Pain & Suffering
-7. Section 5 — Conclusion (Policy Limits Demand Language)
+3. Facts
+4. Liability
+5. Injuries & Treatment
+   - ICD Codes
+   - Objective Tests (X-rays, MRIs, CTs)
+   - Invasive Treatments (if applicable)
+6. Damages
+   - Past Medical Expenses
+   - Future Medical Expenses
+   - Pain & Suffering
+7. Conclusion (Policy Limits Demand Language)
 8. Closing (Very truly yours, firm name, attorney name, initials, Enclosures)
 9. Exhibit List
+
+Section headings should NOT be numbered — use the section name only (e.g., "Facts" not "1. Facts")
 
 ---
 
@@ -113,36 +116,41 @@ This is NOT a numbered section — it appears between the salutation and Section
 
 ---
 
-### 1. Facts
+### Facts
 Describe accident clearly and chronologically
 Use only verified facts from records
 
 ---
 
-### 2. Liability
-Clearly establish fault
-Reference police reports, citations, or statutes if available
-Bold statutory references (e.g., **Cal. Veh. Code § 22350**)
-Use a bold/underlined/italic opening statement establishing liability is clear (matching the tone of the reference document)
-Do not speculate
+### Liability
+Clearly establish fault with detailed legal analysis:
+  - Identify the duty of care owed
+  - Describe the specific negligent conduct (failure to yield, unsafe lane change, etc.)
+  - Reference applicable California Vehicle Code sections with bold formatting (e.g., **Cal. Veh. Code § 22107**)
+  - Establish causation — how the negligent conduct directly caused the collision and injuries
+  - Reference police reports, citations, or liability acceptance correspondence if available
+  - Identify all responsible parties (individual driver, employer like Lyft/Uber if applicable)
+Use a bold/underlined/italic opening statement establishing liability is clear
+Do not speculate — rely only on documented facts
 
 ---
 
-### 3. Injuries & Treatment
-Start with a summary of injuries
-Then proceed chronologically through treatment
-Include:
-  - Providers
-  - Dates
-  - Symptoms
-  - Findings
-  - Treatment plans
+### Injuries & Treatment
+Start with a summary of injuries sustained
+Then proceed chronologically through treatment with **visit-by-visit detail** — each appointment should be its own paragraph including:
+  - Date of service
+  - Provider name and credentials
+  - Chief complaints reported by the patient
+  - Physical examination findings
+  - Diagnoses or assessments
+  - Treatment provided (modalities, adjustments, medications, etc.)
+  - Treatment plan and recommendations
 Use detailed medical language when available
-Integrate objective test findings (MRI, X-ray, etc.) directly into the chronological treatment narrative rather than in a separate section
+Be thorough — do not summarize multiple visits into one paragraph. Each visit or evaluation should be described individually
 
-#### 3.1. ICD Codes
+#### ICD Codes
 
-Extract ICD codes if present in records
+Extract ALL ICD codes found in the records — be comprehensive. Include every code documented by every provider (chiropractic, pain management, imaging, etc.). A typical case should have 10-20+ codes.
 Present the information in a **table with visible borders** and three columns:
   - Column 1: ICD Code (bold)
   - Column 2: Description
@@ -153,7 +161,15 @@ Include exhibit references using the format: (Exhibit X - p. Y)
 Only include codes explicitly found in the records
 Do not infer or generate ICD codes if not present
 
-#### 3.2. Invasive Treatments
+#### 3.2. Objective Tests
+
+List all diagnostic imaging studies (X-rays, MRIs, CTs, etc.) in a separate subsection. For each test, include:
+  - **Test name** (bold)
+  - Date of Service: [date]
+  - Provider: [facility name]
+  - Findings: [detailed findings with exhibit reference in format (Exhibit X - p. Y)]
+
+#### Invasive Treatments
 Include only if clearly present
 Format as a bullet list with sub-bullets for each treatment:
   - **Treatment name** (bold, top-level bullet)
@@ -163,9 +179,9 @@ Format as a bullet list with sub-bullets for each treatment:
 
 ---
 
-### 4. Damages
+### Damages
 
-#### 4.1. Past Medical Expenses
+#### Past Medical Expenses
 
 Present all past medical expenses in a **table with visible borders** and four columns:
   - Column 1: Provider
@@ -179,35 +195,56 @@ Include total charges per provider where available
 Include a **Total** row at the bottom summing all charges
 Do not estimate or generate missing financial data
 
-#### 4.2. Future Medical Expenses
-Include only documented recommendations
+#### Future Medical Expenses
+Include ALL documented recommendations from every provider — be comprehensive. Each recommended treatment or procedure should be its own bullet point.
 Format as a bullet list — each bullet should include:
+  - **Bold the recommended treatment/procedure name** at the start
   - Date of recommendation
-  - Recommending provider and credentials
-  - **Bold the recommended treatment/procedure name**
-  - Brief clinical rationale from the records
-Do NOT speculate
+  - Recommending provider name, credentials, and facility
+  - Clinical rationale from the records
+  - Estimated cost if documented (e.g., "Estimated cost: $9,500.00")
+Do NOT speculate or omit documented recommendations
 
-#### 4.3. Pain & Suffering
-Write a compelling, human-centered narrative
-Describe:
-  - Functional limitations
-  - Daily impact
-  - Long-term consequences
-Keep grounded in documented facts
+#### Pain & Suffering
+Write a compelling, detailed, human-centered narrative across **multiple paragraphs** (minimum 4-5 paragraphs). Cover:
+  - How the accident changed the plaintiff's life
+  - Specific objective medical findings (cite MRI/CT results) and their functional impact
+  - Occupational impact — how injuries affect their specific job duties
+  - The progression of treatment and the burden of repeated medical interventions
+  - Future outlook — upcoming procedures, uncertainty, and long-term prognosis
+Keep grounded in documented facts — reference specific findings and treatment details
 
 ---
 
-### 5. Conclusion (Policy Limits Demand)
+### Conclusion (Policy Limits Demand)
 
 Include strong conditional policy limits demand language structured as follows:
-1. Opening paragraph stating the demand is conditioned on the insured providing a declaration under penalty of perjury by a deadline, followed by a numbered list of required representations (no other auto insurance, no umbrella coverage, no excess coverage, employment/errand scope, real property equity)
-2. Paragraph about consequences of false representations (material breach, setting aside settlement)
-3. Paragraph listing conditions precedent the adjuster must perform by the deadline, as a numbered list (deliver check for policy limits, deliver policy copies, deliver release forms, deliver claims/investigation reports, communication requirements, written-only compliance requirement)
-4. "Time is of the essence" paragraph about failure to comply
-5. Paragraph about client's responsibility for liens if settled
-6. Paragraph about strict compliance and litigation warning
-7. "Good faith effort" closing paragraph
+
+1. Opening paragraph stating the demand is conditioned on ALL insureds providing a declaration under penalty of perjury by a specific deadline (typically 28 days from letter date, at 12:00 p.m.), followed by a **numbered list** of required representations:
+   1. No other automobile insurance providing coverage for this loss
+   2. Not covered under anyone else's automobile insurance for this loss
+   3. No umbrella coverage for this loss
+   4. No excess coverage for this loss
+   5. Was not running an errand for anyone, any company, any agency; was not in the course and scope of any employment; vehicle was not being operated for any commercial purpose including but not limited to rideshare (Uber/Lyft)
+   6. Does not have equity in any real property in excess of $100,000 (list all real property and equity)
+
+2. Paragraph about consequences of false representations — if any representations prove false, it constitutes material breach, client will seek to set aside the settlement and pursue full damages at trial
+
+3. Paragraph stating "before this letter's conditional policy limits settlement offer can be accepted," the adjuster must comply **completely, not just substantially** with conditions precedent by the deadline, as a **numbered list**:
+   1. Deliver check/draft for total policy limits payable to "[Client Name] and Carpenter & Zuckerman" within the time limit
+   2. Deliver legible photocopies of all available liability insurance policies to confirm policy limit amounts
+   3. Deliver appropriate Release of All Claims forms
+   4. Deliver all claims reports and investigation reports referring to potential liability of other parties
+   5. Purpose of letter is to give opportunity to legally effectuate a permanent, binding, enforceable settlement; all communications must be in writing directed to undersigned counsel
+   6. Any effort to comply orally or telephonically will be deemed a rejection of the conditional policy limits demand
+
+4. "Time is of the essence" paragraph — failure to completely perform all conditions precedent within the time limit will be deemed rejection, client will proceed to trial
+
+5. Paragraph — if settled per conditions precedent, client agrees to remain exclusively responsible for satisfying all liens and obligations (medical providers, health insurers, governmental entities)
+
+6. Paragraph about strict compliance required to protect insured from personal responsibility; if amicable resolution cannot be reached, client will pursue all available legal remedies
+
+7. "Good faith effort" closing paragraph — this represents a good faith effort to fairly evaluate the claim for immediate settlement and avoidance of unnecessary litigation. Include "Thank you for your courtesy and cooperation."
 
 ---
 
@@ -228,10 +265,12 @@ After the conclusion, include:
 The AI must automatically determine the exhibit list from the provided records. Do NOT rely on the user to select exhibits.
 
 **How to determine exhibits:**
-1. Each distinct medical provider becomes its own exhibit (one exhibit per provider, regardless of how many records that provider has)
-2. If a police report or traffic collision report is present, include it as Exhibit 1 (before medical providers)
-3. Number exhibits sequentially — police report first (if present), then medical providers in chronological order of first date of service
-4. The exhibit list should match the providers listed in the Past Medical Expenses table
+1. Exhibits should be **medical providers ONLY** — do NOT include correspondence, property damage estimates, or other non-medical documents as exhibits
+2. Each distinct medical provider or imaging facility becomes its own exhibit (one exhibit per provider)
+3. If a surgery center or imaging facility's records are bundled within another provider's records (e.g., DTLA Pain Surgery Center records within Pacific Pain records), do NOT create a separate exhibit — keep them under the primary provider's exhibit
+4. If a police report or traffic collision report is present, include it as Exhibit 1 (before medical providers)
+5. Number exhibits sequentially using Arabic numbers (1, 2, 3...) — do NOT use Roman numerals
+6. The exhibit list should match the providers listed in the Past Medical Expenses table
 
 Reference exhibits throughout the document where applicable:
   - Format: (Exhibit X - p. Y)
@@ -317,17 +356,21 @@ Do NOT include page header/footer content in the body — those go in the `heade
 
 Plain text content for the Google Docs repeating page footer. Format as two lines separated by \n: first line is "CARPENTER & ZUCKERMAN", second line is "8827 W. Olympic Blvd., Beverly Hills, CA  90211    T 310-273-1230    F 310-858-1063". Do NOT include HTML tags in this value — plain text only.
 
-### Section Numbering
+### Section Headings
 
-Section headings must use `<p>` tags (NOT heading tags) with bold uppercase text, at the SAME font size as body text:
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>1. FACTS</b></p>`
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>2. LIABILITY</b></p>`
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>3. INJURIES &amp; TREATMENT</b></p>`
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4. DAMAGES</b></p>`
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>5. CONCLUSION</b></p>`
+Section headings must use `<p>` tags (NOT heading tags) with bold text, at the SAME font size as body text. Do NOT number the sections — use the section name only:
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Facts</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Liability</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Injuries &amp; Treatment</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Damages</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Conclusion</b></p>`
 
-Do NOT use `<small>` tags — they shrink the text. Just use regular uppercase letters.
+Do NOT use `<small>` tags — they shrink the text. Just use regular text.
 
-Subsection headings also use `<p>` with bold text:
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>3.1. ICD Codes</b></p>`
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4.1. Past Medical Expenses</b></p>`
+Subsection headings also use `<p>` with bold text (no numbering):
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>ICD Codes</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Objective Tests</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Invasive Treatments</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Past Medical Expenses</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Future Medical Expenses</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Pain &amp; Suffering</b></p>`
