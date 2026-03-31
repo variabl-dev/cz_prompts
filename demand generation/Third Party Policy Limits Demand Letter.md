@@ -98,7 +98,7 @@ Format the header exactly as follows, in this order:
    ```
    IMPORTANT: The table MUST be `width="100%"` with empty spacer `<td>` cells (no width attribute) on the first and last columns — these absorb remaining space equally to center the content columns.
    Use the HTML `width` attribute directly on the content `<td>` elements (e.g., `<td width="110">`) — do NOT use CSS width, do NOT use `<colgroup>`, do NOT use `<col>`. Google Docs only respects the HTML `width` attribute on table cells.
-   ALL `<td>` cells MUST include `border: none` in their inline style to hide borders.
+   ALL `<td>` cells in the Re: block table MUST include `border: none` in their inline style to hide borders. This applies ONLY to the Re: block — all other tables (ICD Codes, Past Medical Expenses, Exhibit List) should have visible borders.
    The label column MUST use `text-align: right` so that all colons align vertically.
    The colon column MUST use `text-align: center` for consistent spacing.
 6. **Title** — centered, bold, underlined: "POLICY LIMIT/TIME LIMIT DEMAND"
@@ -143,10 +143,11 @@ Integrate objective test findings (MRI, X-ray, etc.) directly into the chronolog
 #### 3.1. ICD Codes
 
 Extract ICD codes if present in records
-Present the information in a **table format with three columns**:
+Present the information in a **table with visible borders** and three columns:
   - Column 1: ICD Code (bold)
   - Column 2: Description
   - Column 3: Exhibit References
+  - **Header row**: bold text with light gray background (`#F1F1F1`)
 Each row should represent a single ICD code
 Include exhibit references using the format: (Exhibit X - p. Y)
 Only include codes explicitly found in the records
@@ -166,11 +167,12 @@ Format as a bullet list with sub-bullets for each treatment:
 
 #### 4.1. Past Medical Expenses
 
-Present all past medical expenses in a **table format with four columns**:
+Present all past medical expenses in a **table with visible borders** and four columns:
   - Column 1: Provider
   - Column 2: Treatment Period
   - Column 3: Total Charge Amount
   - Column 4: Exhibit Reference
+  - **Header row**: bold text with light gray background (`#F1F1F1`)
 Each row should represent a single provider
 Include exhibit references using the format: (Exhibit X - p. Y)
 Include total charges per provider where available
