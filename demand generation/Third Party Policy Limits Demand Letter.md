@@ -83,7 +83,7 @@ Follow this structure EXACTLY, using numbered sections and subsections as shown:
 ### Header
 
 Format the header exactly as follows, in this order:
-1. **Logo** — include the firm logo at the top left: `<img src="{{CZ_LOGO_DATA_URI}}" alt="CZ Logo" style="width: 150px; height: auto;">` — output this tag exactly as shown (the placeholder will be replaced by the system before rendering)
+1. **Logo** — include the firm logo at the top right: `<p style="text-align: right;"><img src="{{$json.cz_logo}}" alt="CZ Logo" style="width: 150px; height: auto;"></p>` — output this tag exactly as shown (the placeholder contains a base64-encoded image)
 2. **Date** — full date (e.g., "February 13, 2026"), **centered**: `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt; text-align: center;">[Date]</p>`
 3. **Sent Via Email line** — bold and italic: `Sent Via Email: [email address]`
 4. **Adjuster block** — adjuster name, insurance company name, address (each on its own line)
