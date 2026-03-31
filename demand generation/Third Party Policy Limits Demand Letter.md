@@ -42,7 +42,7 @@ You will be provided with:
    - MEDSUMM (Medical Summaries)
    - EVID (Evidence)
    - PROP (Property Damage)
-3. User-selected exhibit documents (3–12 documents)
+3. Medical records and supporting documents (used to derive exhibits)
 
 ---
 
@@ -222,15 +222,27 @@ After the conclusion, include:
 
 ## EXHIBIT HANDLING
 
-Use ONLY the user-selected exhibit documents
+The AI must automatically determine the exhibit list from the provided records. Do NOT rely on the user to select exhibits.
+
+**How to determine exhibits:**
+1. Each distinct medical provider becomes its own exhibit (one exhibit per provider, regardless of how many records that provider has)
+2. If a police report or traffic collision report is present, include it as Exhibit 1 (before medical providers)
+3. Number exhibits sequentially — police report first (if present), then medical providers in chronological order of first date of service
+4. The exhibit list should match the providers listed in the Past Medical Expenses table
+
 Reference exhibits throughout the document where applicable:
   - Format: (Exhibit X - p. Y)
 
 ### Exhibit List (End of Document)
 
-Present as a **table with two columns**:
-  - Column 1: No. (exhibit number)
-  - Column 2: Description (derived from document name or summary)
+Title "Exhibit List" centered above the table (use Subtitle style / `<h2>` centered).
+
+Present as a **centered table with visible borders** and two columns:
+  - Column 1: **No.** (~19% width) — exhibit number, centered
+  - Column 2: **Description** (~81% width) — provider name (e.g., "Elite Medical Clinic", "Riverside Community Hospital")
+  - **Header row**: bold text with light gray background (`#F1F1F1` / `background-color: #f1f1f1`)
+  - **All cells**: visible borders (do NOT use `border: none` — this table should have borders, unlike the Re: block)
+  - **Table alignment**: centered on the page
 Each row should represent a single exhibit
 
 ---
