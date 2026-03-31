@@ -83,7 +83,7 @@ Follow this structure EXACTLY, using numbered sections and subsections as shown:
 ### Header
 
 Format the header exactly as follows, in this order:
-1. **Logo** — include the firm logo at the top right: `<p style="text-align: right;"><img src="{{$json.cz_logo}}" alt="CZ Logo" style="width: 150px; height: auto;"></p>` — output this tag exactly as shown (the placeholder contains a base64-encoded image)
+1. **Logo** — include the firm logo at the top right: `<p style="text-align: right;"><img src="https://raw.githubusercontent.com/variabl-dev/cz_prompts/main/demand%20generation/CZ_LOGO.png" alt="CZ Logo" style="width: 150px; height: auto;"></p>` — output this tag exactly as shown
 2. **Date** — full date (e.g., "February 13, 2026"), **centered**: `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt; text-align: center;">[Date]</p>`
 3. **Sent Via Email line** — bold and italic: `Sent Via Email: [email address]`
 4. **Adjuster block** — adjuster name, insurance company name, address (each on its own line)
