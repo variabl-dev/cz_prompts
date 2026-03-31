@@ -219,6 +219,7 @@ After the conclusion, include:
 3. Attorney name
 4. Attorney initials/typist initials (e.g., "PSZ/iml")
 5. "Enclosures"
+6. **Exhibit List** — this MUST always appear as the final element of the document (see EXHIBIT HANDLING section below for format)
 
 ---
 
@@ -235,7 +236,9 @@ The AI must automatically determine the exhibit list from the provided records. 
 Reference exhibits throughout the document where applicable:
   - Format: (Exhibit X - p. Y)
 
-### Exhibit List (End of Document)
+### Exhibit List (REQUIRED — End of Document)
+
+The exhibit list MUST always be included as the very last element of the output, after "Enclosures". Never omit it.
 
 Title "Exhibit List" centered above the table (use Subtitle style / `<h2>` centered).
 
