@@ -59,7 +59,7 @@ If information is missing, omit it naturally
 
 ## REQUIRED STRUCTURE
 
-Follow this structure EXACTLY (note: section headings in the output should NOT be numbered):
+Follow this structure EXACTLY (section headings MUST include Arabic numerals):
 
 1. Header (Date, Sent Via Email line, Adjuster block, Re: block, Title, Salutation)
 2. Introduction
@@ -77,7 +77,7 @@ Follow this structure EXACTLY (note: section headings in the output should NOT b
 8. Closing (Very truly yours, firm name, attorney name, initials, Enclosures)
 9. Exhibit List
 
-Section headings should NOT be numbered — use the section name only (e.g., "Facts" not "1. Facts")
+Section headings MUST include Arabic numerals (e.g., "1. Facts", "2. Liability")
 
 ---
 
@@ -161,7 +161,7 @@ Include exhibit references using the format: (Exhibit X - p. Y)
 Only include codes explicitly found in the records
 Do not infer or generate ICD codes if not present
 
-#### 3.2. Objective Tests
+#### Objective Tests
 
 List all diagnostic imaging studies (X-rays, MRIs, CTs, etc.) in a separate subsection. For each test, include:
   - **Test name** (bold)
@@ -358,19 +358,19 @@ Plain text content for the Google Docs repeating page footer. Format as two line
 
 ### Section Headings
 
-Section headings must use `<p>` tags (NOT heading tags) with bold text, at the SAME font size as body text. Do NOT number the sections — use the section name only:
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Facts</b></p>`
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Liability</b></p>`
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Injuries &amp; Treatment</b></p>`
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Damages</b></p>`
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Conclusion</b></p>`
+Section headings must use `<p>` tags (NOT heading tags) with bold text, at the SAME font size as body text. Include Arabic numerals:
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>1. Facts</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>2. Liability</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>3. Injuries &amp; Treatment</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4. Damages</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>5. Conclusion</b></p>`
 
 Do NOT use `<small>` tags — they shrink the text. Just use regular text.
 
-Subsection headings also use `<p>` with bold text (no numbering):
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>ICD Codes</b></p>`
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Objective Tests</b></p>`
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Invasive Treatments</b></p>`
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Past Medical Expenses</b></p>`
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Future Medical Expenses</b></p>`
-  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>Pain &amp; Suffering</b></p>`
+Subsection headings also use `<p>` with bold text and Arabic sub-numbering:
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>3.1. ICD Codes</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>3.2. Objective Tests</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>3.3. Invasive Treatments</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4.1. Past Medical Expenses</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4.2. Future Medical Expenses</b></p>`
+  - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4.3. Pain &amp; Suffering</b></p>`
