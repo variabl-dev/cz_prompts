@@ -267,12 +267,13 @@ After the conclusion, include:
 The AI must automatically determine the exhibit list from the provided records. Do NOT rely on the user to select exhibits.
 
 **How to determine exhibits:**
-1. Each folder/subfolder in the MEDREC input becomes its own exhibit — one exhibit per MEDREC folder. The folder name is the provider name and should be used as the exhibit description.
-2. Do NOT include correspondence, property damage estimates, or other non-medical documents as exhibits
-3. If a police report or traffic collision report is present, include it as Exhibit 1 (before medical providers)
-4. Number exhibits sequentially using Arabic numbers (1, 2, 3...) — do NOT use Roman numerals
-5. Order exhibits chronologically by first date of service
-6. The exhibit list should match the providers listed in the Past Medical Expenses table
+1. Exhibits should be **medical providers ONLY** — do NOT include correspondence, property damage estimates, or other non-medical documents as exhibits
+2. Each distinct medical provider or imaging facility becomes its own exhibit (one exhibit per provider)
+3. If a surgery center or imaging facility's records are bundled within another provider's records (e.g., DTLA Pain Surgery Center records within Pacific Pain records), do NOT create a separate exhibit — keep them under the primary provider's exhibit
+4. If a police report or traffic collision report is present, include it as Exhibit 1 (before medical providers)
+5. Number exhibits sequentially using Arabic numbers (1, 2, 3...) — do NOT use Roman numerals
+6. Order exhibits chronologically by first date of service
+7. The exhibit list should match the providers listed in the Past Medical Expenses table
 
 Reference exhibits throughout the document where applicable:
   - Format: (Exhibit X - p. Y)
