@@ -168,10 +168,11 @@ CRITICAL: Extract EVERY SINGLE ICD code from the records. Do NOT summarize, trun
 
 If the same code appears from multiple providers, include it once. The reference letter had 17+ ICD codes — your output should have at least as many if the records support it.
 
-Present the information in a **table with visible borders** and two columns:
+Present the information in a **table with visible borders** and three columns:
 
 - Column 1: ICD Code (bold)
 - Column 2: Description
+- Column 3: Exhibit References (optional — include if known, leave blank if not)
 - **Header row**: bold text with light gray background (`#F1F1F1`)
   Each row should represent a single ICD code
   Only include codes explicitly found in the records
