@@ -152,7 +152,7 @@ Be thorough — do not summarize multiple visits into one paragraph. Each visit 
 
 #### ICD Codes
 
-Extract ALL ICD codes found in the records — be comprehensive. Include every code documented by every provider (chiropractic, pain management, imaging, etc.). A typical case should have 10-20+ codes.
+Extract as many ICD codes as possible from the records — do NOT limit or truncate. Include EVERY code documented by EVERY provider (chiropractic, pain management, imaging, emergency, orthopedic, etc.). Scan all MEDREC folders for ICD codes. If a provider lists 10 codes, include all 10. If there are 30 codes total across all providers, include all 30. Err on the side of including more, not fewer.
 Present the information in a **table with visible borders** and three columns:
   - Column 1: ICD Code (bold)
   - Column 2: Description
