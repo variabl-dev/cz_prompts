@@ -166,16 +166,14 @@ CRITICAL: Extract EVERY SINGLE ICD code from the records. Do NOT summarize, trun
 - Chiropractic SOAP notes
 - Imaging order forms
 
-If the same code appears from multiple providers, include it once but list all exhibit references. The reference letter had 17+ ICD codes — your output should have at least as many if the records support it.
+If the same code appears from multiple providers, include it once. The reference letter had 17+ ICD codes — your output should have at least as many if the records support it.
 
-Present the information in a **table with visible borders** and three columns:
+Present the information in a **table with visible borders** and two columns:
 
 - Column 1: ICD Code (bold)
 - Column 2: Description
-- Column 3: Exhibit References
 - **Header row**: bold text with light gray background (`#F1F1F1`)
   Each row should represent a single ICD code
-  Include exhibit references using the format: (Exhibit X - p. Y)
   Only include codes explicitly found in the records
   Do not infer or generate ICD codes if not present
 
