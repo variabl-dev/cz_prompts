@@ -142,18 +142,24 @@ Clearly establish fault with detailed legal analysis:
 
 ### Injuries & Treatment
 
-Start with a summary of injuries sustained
-Then proceed chronologically through treatment with **visit-by-visit detail** — each appointment should be its own paragraph including:
+Write this section as a **flowing legal narrative**, NOT as a structured fact list or bulleted summary. The goal is to tell the story of the plaintiff's injuries and medical journey in a way that is compelling and persuasive to an adjuster.
 
-- Date of service
-- Provider name and credentials
-- Chief complaints reported by the patient
-- Physical examination findings
-- Diagnoses or assessments
-- Treatment provided (modalities, adjustments, medications, etc.)
-- Treatment plan and recommendations
-  Use detailed medical language when available
-  Be thorough — do not summarize multiple visits into one paragraph. Each visit or evaluation should be described individually
+**Opening paragraph:** Begin with a narrative summary of the injuries sustained, emphasizing their severity and impact on the plaintiff's life.
+
+**Treatment narrative:** Proceed chronologically through treatment, weaving each visit into the broader story of the plaintiff's medical course. Each appointment should be its own paragraph written in **prose form** — naturally incorporating the date, provider, complaints, findings, treatment provided, and plan into flowing sentences. Do NOT use bullet points, labeled fields, or a "Date: / Provider: / Findings:" format.
+
+For example, instead of:
+"Date of Service: January 15, 2025. Provider: Dr. Smith. Chief Complaint: Neck pain. Findings: Tenderness at C5-C6. Treatment: Chiropractic adjustment."
+
+Write:
+"On January 15, 2025, Plaintiff presented to Dr. Smith with persistent neck pain radiating into the right shoulder. Upon examination, Dr. Smith noted marked tenderness at the C5-C6 level with restricted range of motion, and performed a chiropractic adjustment to address the cervical subluxation."
+
+**Key principles:**
+- Connect visits to each other — show how symptoms evolved, worsened, or led to escalation in care
+- Emphasize the plaintiff's suffering and functional limitations throughout
+- Use detailed medical language when available, but embed it within natural sentences
+- Be thorough — each visit or evaluation should be described individually, not summarized in groups
+- Where relevant, highlight the progression from conservative treatment to more aggressive interventions
 
 #### ICD Codes
 
