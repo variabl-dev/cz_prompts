@@ -142,19 +142,31 @@ Clearly establish fault with detailed legal analysis:
 
 ### Injuries & Treatment
 
-Write this section as a **flowing legal narrative**, NOT as a structured fact list or bulleted summary. The goal is to tell the story of the plaintiff's injuries and medical journey in a way that is compelling and persuasive to an adjuster.
+Write this section as a **flowing legal narrative** written by an attorney, NOT a medical chart summary or discharge report. The goal is to tell the story of the plaintiff's injuries and medical journey in a way that is compelling and persuasive to an adjuster. This section should read like it was written by a lawyer who reviewed the records — not by a doctor dictating notes.
+
+**CRITICAL — Tone and register:** Write like an attorney, not a clinician. Do NOT include lab values with reference ranges (e.g., "WBC 23.6 × 10³/µL"), therapeutic drug ranges (e.g., "therapeutic range: 10–20 mcg/mL"), ejection fractions, or other granular clinical data that belongs in a medical chart. Instead, describe findings in plain but precise attorney language. For example:
+- YES: "developed hypotension with a blood pressure of 80/55, requiring IV fluid resuscitation"
+- NO: "vital signs demonstrated chronic hypotension (BP 80/55), requiring initiation of midodrine"
+- YES: "experienced episodes of hallucinations"
+- NO: "exhibited visual hallucinations (reporting 'ants crawling on his body') secondary to phenytoin toxicity, with a serum phenytoin level of 24 mcg/mL (therapeutic range: 10–20 mcg/mL)"
+
+Include specific pain ratings, blood pressure readings, and injury measurements (e.g., "7 cm hematoma") — these are persuasive. But omit lab panels, drug levels with ranges, ejection fractions, and other deep clinical minutiae that an adjuster will not find meaningful.
+
+**CRITICAL — Do NOT fabricate or over-infer:** Only include facts explicitly documented in the records. Do NOT:
+- Infer reasons for missed appointments (e.g., do not write "cancelled due to transportation barriers" unless the records explicitly state this)
+- Add details not in the provided records (e.g., APS reports, caregiver abuse allegations) unless explicitly documented
+- Speculate about causation beyond what providers documented
+- Add clinical details to sound more thorough — if a detail is not in the records, leave it out
 
 **Opening paragraph:** Begin with a narrative summary of the specific injuries sustained (name each injury), emphasizing their severity.
 
 **Treatment narrative:** Proceed chronologically through treatment. Each visit, evaluation, or encounter in the records MUST get its own dedicated paragraph written in **prose form**. Do NOT condense multiple visits or days into a single paragraph. Do NOT skip any visit, consultation, home health encounter, phone follow-up, or specialist evaluation found in the records.
 
-**CRITICAL — Name every provider:** Always use the provider's full name and credentials (e.g., "Dr. Kevin J. Hardiman, D.O." — NOT "emergency physicians" or "orthopedic specialists"). If multiple providers are involved in a single encounter, name each one. Never use generic descriptions like "the medical team," "specialists," or "physicians" when the records identify the specific individuals.
+**CRITICAL — Name every provider:** Always use the provider's full name and credentials (e.g., "Dr. Kevin J. Hardiman, D.O." — NOT "emergency physicians" or "orthopedic specialists"). This includes EMTs, nurses, and home health providers — if the records name them, you must name them. If multiple providers are involved in a single encounter, name each one. Never use generic descriptions like "the medical team," "specialists," or "physicians" when the records identify the specific individuals.
 
-**CRITICAL — Include all clinical detail:** Include specific pain ratings (e.g., "pain rated at 9 out of 10"), vital signs (e.g., "blood pressure of 80/55"), measurements (e.g., "7 cm hematoma"), and quantified findings exactly as documented. Do NOT paraphrase these into vague language like "severe pain" or "hypotension" when the records contain specific numbers.
+**CRITICAL — Do NOT skip or consolidate visits:** If a patient was hospitalized for multiple days, describe each day's events in its own paragraph. Every post-discharge visit — video visits, home health encounters, phone follow-ups, urgent care visits — must appear as its own paragraph. Omitting visits to shorten the section is NOT acceptable.
 
-**CRITICAL — Do NOT skip or consolidate visits:** If a patient was hospitalized for multiple days, describe each day's events in its own paragraph. If the records show a Dec 24 video visit, a home health visit, a Jan 13 UTI treatment, and a Jan 23 neurology follow-up, ALL of those must appear as separate paragraphs. Omitting visits to shorten the section is NOT acceptable.
-
-**For multi-day hospitalizations:** Break the stay into segments by date or date range. Each segment should describe the providers seen that day, complications that arose, diagnostic results received, and treatments administered. Show the day-by-day progression of the patient's condition.
+**For multi-day hospitalizations:** Break the stay into segments by date or date range. Each segment should have its own paragraph describing the providers seen, complications that arose, diagnostic results received, and treatments administered. Show the day-by-day progression of the patient's condition. Specialist consultations during hospitalization should each be described with the specialist's full name, specialty, and their specific recommendation.
 
 For example, instead of:
 "Date of Service: January 15, 2025. Provider: Dr. Smith. Chief Complaint: Neck pain. Findings: Tenderness at C5-C6. Treatment: Chiropractic adjustment."
@@ -165,7 +177,7 @@ Write:
 **Additional principles:**
 - Connect visits to each other — show how symptoms evolved, worsened, or led to escalation in care
 - Emphasize the plaintiff's suffering and functional limitations throughout
-- Use detailed medical language when available, but embed it within natural sentences
+- Use medical terminology where appropriate, but keep it accessible — write for an insurance adjuster, not a physician
 - Where relevant, highlight the progression from conservative treatment to more aggressive interventions
 
 #### ICD Codes
