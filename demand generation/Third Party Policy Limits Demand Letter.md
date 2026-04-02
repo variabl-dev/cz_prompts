@@ -127,16 +127,15 @@ Use only verified facts from records
 
 ### Liability
 
-Clearly establish fault with detailed legal analysis:
+State plainly and assertively why the defendant is at fault. This section should be **short and direct** — not a legal analysis or essay on negligence theory. Do NOT discuss duty of care, causation frameworks, or legal reasoning. Simply state what the defendant did wrong and why they are liable.
 
-- Identify the duty of care owed
-- Describe the specific negligent conduct (failure to yield, unsafe lane change, etc.)
+- Open with a bold/underlined/italic statement establishing that liability is clear
+- State the defendant's specific negligent conduct (e.g., ran a red light, failed to yield, made an unsafe lane change)
 - Reference applicable California Vehicle Code sections with bold formatting (e.g., **Cal. Veh. Code § 22107**)
-- Establish causation — how the negligent conduct directly caused the collision and injuries
 - Reference police reports, citations, or liability acceptance correspondence if available
 - Identify all responsible parties (individual driver, employer like Lyft/Uber if applicable)
-  Use a bold/underlined/italic opening statement establishing liability is clear
-  Do not speculate — rely only on documented facts
+- Do not speculate — rely only on documented facts
+- Keep this section concise — a few paragraphs at most
 
 ---
 
