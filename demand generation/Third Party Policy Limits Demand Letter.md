@@ -268,9 +268,13 @@ Write a compelling, detailed, human-centered narrative across **multiple paragra
 
 ### Conclusion (Policy Limits Demand)
 
+**CRITICAL — Do NOT state the policy limits amount anywhere in the conclusion.** Do not mention a specific dollar figure for the policy limits. Refer only to "the total available policy limits" or "policy limits" generically.
+
+**CRITICAL — The deadline must be at least 30 days from the letter date.** Calculate 30 days from the letter date and use that as the minimum deadline. If 30 days falls on a weekend or holiday, extend to the next business day.
+
 Include strong conditional policy limits demand language structured as follows:
 
-1. Opening paragraph stating the demand is conditioned on ALL insureds providing a declaration under penalty of perjury by a specific deadline (typically 28 days from letter date, at 12:00 p.m.), followed by a **numbered list** of required representations:
+1. Opening paragraph stating the demand is conditioned on ALL insureds providing a declaration under penalty of perjury by a specific deadline (minimum 30 days from letter date, at 12:00 p.m.), followed by a **numbered list** of required representations:
    1. No other automobile insurance providing coverage for this loss
    2. Not covered under anyone else's automobile insurance for this loss
    3. No umbrella coverage for this loss
