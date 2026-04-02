@@ -158,9 +158,9 @@ Include specific pain ratings, blood pressure readings, and injury measurements 
 - Speculate about causation beyond what providers documented
 - Add clinical details to sound more thorough — if a detail is not in the records, leave it out
 
-**Opening paragraph:** Begin with a narrative summary of the specific injuries sustained (name each injury), emphasizing their severity.
+Begin with an opening paragraph that narratively summarizes the specific injuries sustained (name each injury), emphasizing their severity. Do NOT create a separate heading or subsection for this — it is the first paragraph of "Injuries & Treatment."
 
-**Treatment narrative:** Proceed chronologically through treatment. Each visit, evaluation, or encounter in the records MUST get its own dedicated paragraph written in **prose form**. Do NOT condense multiple visits or days into a single paragraph. Do NOT skip any visit, consultation, home health encounter, phone follow-up, or specialist evaluation found in the records.
+Then proceed chronologically through treatment. Each visit, evaluation, or encounter in the records MUST get its own dedicated paragraph written in **prose form**. Do NOT condense multiple visits or days into a single paragraph. Do NOT skip any visit, consultation, home health encounter, phone follow-up, or specialist evaluation found in the records. Do NOT create any additional subheadings within this narrative (no "Treatment Narrative," "Hospital Course," "Post-Discharge Care," etc.) — just write continuous paragraphs under the "3. Injuries & Treatment" heading until you reach the ICD Codes subsection.
 
 **CRITICAL — Name every provider:** Always use the provider's full name and credentials (e.g., "Dr. Kevin J. Hardiman, D.O." — NOT "emergency physicians" or "orthopedic specialists"). This includes EMTs, nurses, and home health providers — if the records name them, you must name them. If multiple providers are involved in a single encounter, name each one. Never use generic descriptions like "the medical team," "specialists," or "physicians" when the records identify the specific individuals.
 
