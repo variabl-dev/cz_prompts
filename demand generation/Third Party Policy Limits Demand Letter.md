@@ -186,12 +186,12 @@ Present the information in a **table with visible borders** and three columns:
 
 #### Objective Tests
 
-List all diagnostic imaging studies (X-rays, MRIs, CTs, etc.) in a separate subsection. For each test, include:
+List all diagnostic imaging studies (X-rays, MRIs, CTs, etc.) in a separate subsection. Format as a bullet list with sub-bullets for each test:
 
-- **Test name** (bold)
-- Date of Service: [date]
-- Provider: [facility name]
-- Findings: [detailed findings with exhibit reference in format (Exhibit X - p. Y)]
+- **Test name** (bold, top-level bullet)
+  - Date of Service: [date]
+  - Provider: [facility name]
+  - Findings: [detailed findings with exhibit reference in format (Exhibit X - p. Y)]
 
 #### Invasive Treatments
 
