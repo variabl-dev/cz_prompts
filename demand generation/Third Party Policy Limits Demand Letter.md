@@ -316,17 +316,12 @@ After the conclusion, include:
 
 ## EXHIBIT HANDLING
 
-The AI must automatically determine the exhibit list from the provided records. Do NOT rely on the user to select exhibits.
+**CRITICAL — The user will always provide an exhibit list in the input JSON, and that list is law.** You MUST:
 
-**How to determine exhibits:**
-
-1. Exhibits should be **medical providers ONLY** — do NOT include correspondence, property damage estimates, or other non-medical documents as exhibits
-2. Each distinct medical provider or imaging facility becomes its own exhibit (one exhibit per provider)
-3. If a surgery center or imaging facility's records are bundled within another provider's records (e.g., DTLA Pain Surgery Center records within Pacific Pain records), do NOT create a separate exhibit — keep them under the primary provider's exhibit
-4. If a police report or traffic collision report is present, include it as Exhibit 1 (before medical providers)
-5. Number exhibits sequentially using Arabic numbers (1, 2, 3...) — do NOT use Roman numerals
-6. Order exhibits chronologically by first date of service
-7. The exhibit list should match the providers listed in the Past Medical Expenses table
+1. Use the exhibits exactly as provided — do NOT add, remove, merge, split, or rename them
+2. Preserve the EXACT order in which exhibits appear in the JSON — do NOT reorder them alphabetically, chronologically by date of service, by provider type/title, or by any other criterion. The order in the JSON is the order in the output, and exhibit numbers (1, 2, 3...) are assigned in that same order.
+3. Number exhibits sequentially using Arabic numbers (1, 2, 3...) following the JSON order — do NOT use Roman numerals
+4. Match the providers in the Past Medical Expenses table to the user-provided exhibit numbers; do NOT renumber based on the table
 
 Reference exhibits throughout the document where applicable:
 
