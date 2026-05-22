@@ -93,7 +93,18 @@ Format the header exactly as follows, in this order:
 
 1. **Logo** — include the firm logo at the top right: `<p style="text-align: right;"><img src="https://raw.githubusercontent.com/variabl-dev/cz_prompts/main/demand%20generation/CZ_LOGO.png" alt="CZ Logo" style="width: 150px; height: auto;"></p>` — output this tag exactly as shown
 2. **Date** — full date (e.g., "February 13, 2026"), **centered**: `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt; text-align: center;">[Date]</p>`
-3. **Sent Via line** — bold and italic. Default to email delivery when an email address is available: `Sent Via Email: [email address]`. Only fall back to facsimile (`Sent Via Facsimile: [fax number]`) when no email address is documented for the adjuster and a fax number is. Do NOT default to facsimile when email is available.
+3. **Sent Via line** — bold and italic.
+
+   **CRITICAL — DELIVERY METHOD SELECTION:** You MUST default to email delivery. Before writing this line, scan the entire input (LITIFY adjuster data, CORR correspondence headers, claim contact records, prior email threads) for ANY email address associated with the adjuster, the insurance company's claims intake, or the claim. If you find one, you MUST use it.
+
+   - **If an email address is available anywhere in the input:** output `***Sent Via Email:*** [email address]`. This is the required default — do NOT choose facsimile.
+   - **Only if NO email address appears anywhere in the input AND a fax number does:** output `***Sent Via Facsimile:*** [fax number]`.
+   - **If neither is documented:** output `***Sent Via U.S. Mail***` and rely on the address block below.
+
+   ANTI-PATTERN — do NOT do this:
+   - Choosing facsimile because a fax number appears in the LITIFY contact record while ignoring an email address that appears in CORR. Email wins.
+   - Choosing facsimile because "that is how the prior letter was sent." The prior letter's delivery method is irrelevant. Use what is in the current input.
+   - Inventing an email address. If none is documented, fall back to fax or mail as above.
 4. **Adjuster block** — adjuster name, insurance company name, address (each on its own line)
 5. **Re: block** — use a full-width table with empty spacer columns on both sides to center the content on the page. Use HTML `width` attributes on each `<td>` (NOT CSS width, NOT `<colgroup>`). The label column must be right-aligned (`text-align: right`) so the colons line up vertically:
    ```
@@ -129,6 +140,8 @@ Use only verified facts from records
 Include the most specific location detail available in the records — street name, business name, and municipality when documented (e.g., "the Target store on La Paz Road in Aliso Viejo, Orange County, California"). Do NOT default to county-level location when more specific detail is in the records.
 Capture corroborating evidentiary anchors when documented: police report number, license plate, surveillance footage and the entity that retrieved it, witness names, and passenger identities. These details strengthen the factual record without changing tone.
 
+**CRITICAL — Character-exact transcription of identifiers.** License plate numbers, VINs, claim numbers, policy numbers, badge numbers, police report numbers, and similar alphanumeric identifiers MUST be copied character-by-character from the source. Do NOT paraphrase, abbreviate, normalize spacing, "correct" what looks like a typo, or add characters that look right. If the police report says `BBE933`, output `BBE933` — not `BBSE933`, not `BBE 933`, not `BBE-933`. If you cannot read a character with certainty, transcribe what is present rather than guessing. Identifier fidelity is a litigation-risk issue: a wrong plate number in a demand letter can be challenged.
+
 ---
 
 ### Liability
@@ -142,12 +155,13 @@ State plainly and assertively why the defendant is at fault. This section should
   - Pedestrian right-of-way (e.g., § 21950)
   - Provisional license restrictions (e.g., § 12814.6) when the driver is a minor or provisional licensee, especially regarding passenger-age limits
   - Following too closely, speed laws, red-light / stop-sign violations, lane changes, DUI, distracted driving — whichever apply
-- **Surface citation events distinctly.** If the records show the defendant was actually *cited* (not merely in violation), state that fact explicitly with the statute under which the citation was issued. A citation is meaningful evidentiary leverage and must not be collapsed into general "violation" language.
+- **CRITICAL — Surface citation events distinctly from underlying violations.** Before drafting this section, scan the Traffic Collision Report, police narrative, citation forms, and any DMV records for explicit language indicating the driver was *cited* (e.g., "issued a citation for," "cited under," "citation #," "ticket issued"). A *citation* is a specific evidentiary event — not the same as describing a statute the driver violated. If the records confirm a citation was issued, you MUST state that fact explicitly in its own sentence, naming the statute the citation was issued under (e.g., "Officer Masten issued Ms. Chang a citation for violation of California Vehicle Code § 12814.6."). Do NOT collapse the citation into a generic "violated the Vehicle Code" sentence. If the records do not confirm a citation, do NOT fabricate one — describe the violation only.
 - Reference police reports, citations, surveillance footage, and liability acceptance correspondence if available
-- Identify ALL responsible parties:
-  - The individual driver
-  - Employer (e.g., Lyft/Uber) if the vehicle was in commercial use
-  - The vehicle's registered owner if different from the driver — and where the owner negligently entrusted the vehicle to an unfit or restricted driver (e.g., a provisional licensee transporting prohibited passengers, an intoxicated driver, a driver with a known dangerous record), name **negligent entrustment** as an additional theory of liability against the owner
+- Identify ALL responsible parties **by full name**:
+  - The individual driver — full name
+  - Employer (e.g., Lyft/Uber) if the vehicle was in commercial use — full company name
+  - The vehicle's registered owner if different from the driver — **the owner MUST be identified by their full name as documented in the police report, DMV records, or registration documents.** Do NOT use generic phrases such as "the registered owner" or "the vehicle's owner" when the records identify them by name. If the owner is named in the source data, that name MUST appear in the Liability section.
+  - Where the owner negligently entrusted the vehicle to an unfit or restricted driver (e.g., a provisional licensee transporting prohibited passengers, an intoxicated driver, a driver with a known dangerous record), name **negligent entrustment** as an additional theory of liability against the owner — and again, name the owner explicitly in that sentence.
 - Do not speculate — rely only on documented facts
 - Keep this section concise — a few paragraphs at most
 
@@ -167,9 +181,17 @@ Include specific pain ratings, blood pressure readings, and injury measurements 
 
 **CRITICAL — Do NOT duplicate the Objective Tests subsection inline.** Detailed MRI / CT / X-ray findings belong in section 3.2 (Objective Tests). In the visit-by-visit narrative, refer to imaging at a high level (e.g., "ordered MRI studies of the lumbar spine, cervical spine, and left ankle to evaluate for occult fracture and nerve involvement," or "Dr. Khan reviewed the imaging and noted multilevel disc protrusions with severe stenosis at L4-L5"). Do NOT re-list every disc level, every Schmorl's node, every Modic change, or every millimeter measurement in the narrative paragraphs — that material is reserved for the Objective Tests bullet list. The narrative's job is to show the story of care, not to restate radiology reports.
 
-**CRITICAL — Capture visit modality accurately.** If the records identify a visit as a telehealth / video / telephone follow-up, describe it that way. If they identify it as in-person, describe it as in-person. Do NOT default to in-person when modality is documented otherwise.
+**CRITICAL — Capture visit modality accurately.** Before describing any visit, scan the encounter record for modality markers. Look for explicit language such as: "telehealth," "telemedicine," "video visit," "virtual visit," "telephone visit," "phone follow-up," "remote consultation," modifier codes (e.g., CPT modifier `-95`, place-of-service `02` or `10`), or platform names (Doxy.me, Zoom, etc.). If ANY of these markers appear for a given encounter, describe that encounter as a telehealth / video / telephone visit (e.g., "On April 23, 2026, Ms. [Name] followed up with Dr. Khan via telehealth..."). Do NOT default to "presented to" or "returned to" in-person language unless the encounter is unambiguously in-person. When in doubt, use a neutral phrase such as "followed up with Dr. Khan" rather than fabricating in-person presentation.
 
 **CRITICAL — Tie failed interventions to ongoing damages.** When an invasive procedure (epidural injection, nerve block, surgery) produces minimal or no relief and the patient's pain persists at the next follow-up, state that connection plainly — e.g., "Two weeks after the April 30 injection, Ms. [Name] returned with pain still at 9/10, indicating minimal benefit from the procedure." A failed intervention that necessitates escalation to further procedures is a damages multiplier and should be surfaced as such.
+
+**CRITICAL — Procedure laterality and level fidelity.** For any invasive procedure (epidural injection, nerve block, surgery, injection, ablation), the laterality (left, right, bilateral) and anatomic level (e.g., L3-4, L4-5, C5-6) MUST be transcribed exactly from the operative note, procedure note, or imaging order. Do NOT:
+- Describe a unilateral (left-only or right-only) procedure as "bilateral"
+- Describe a bilateral procedure as unilateral
+- Omit laterality when the source specifies it
+- Guess laterality when the source is ambiguous — describe the procedure without laterality rather than fabricate
+
+A procedure described as "left lumbar transforaminal epidural steroid injection at L3-4 and L4-5" is a LEFT-sided injection performed at two spinal levels — it is NOT bilateral. Two levels does not mean bilateral. Read the operative note's laterality field carefully and reproduce it exactly. Mischaracterizing procedure laterality in a demand letter creates impeachment risk if the operative record is later produced in litigation.
 
 **CRITICAL — Do NOT fabricate or over-infer:** Only include facts explicitly documented in the records. Do NOT:
 - Infer reasons for missed appointments (e.g., do not write "cancelled due to transportation barriers" unless the records explicitly state this)
@@ -212,7 +234,9 @@ CRITICAL: Extract EVERY SINGLE ICD code from the records. Do NOT summarize, trun
 - Chiropractic SOAP notes
 - Imaging order forms
 
-If the same code appears from multiple providers, include it once. The reference letter had 17+ ICD codes — your output should have at least as many if the records support it.
+**CRITICAL — De-duplicate ICD codes by code value.** Each unique ICD code MUST appear in the table EXACTLY ONCE. Before emitting the table, build a set keyed by the normalized ICD code string (e.g., `M25.572`). If the same code appears from multiple providers, exhibits, or visit notes, do NOT emit it as separate rows — combine the exhibit references into the single row's "Exhibit References" cell (e.g., `Exhibit 2; Exhibit 3`). Do NOT emit two rows for `M25.572` even if the descriptions or exhibit references differ slightly. After drafting the table, verify that no ICD code appears more than once; if it does, merge the duplicate rows.
+
+The reference letter had 17+ ICD codes — your output should have at least as many if the records support it.
 
 Present the information in a **table with visible borders** and three columns:
 
@@ -220,7 +244,7 @@ Present the information in a **table with visible borders** and three columns:
 - Column 2: Description
 - Column 3: Exhibit References (optional — include if known, leave blank if not)
 - **Header row**: bold text with light gray background (`#F1F1F1`)
-  Each row should represent a single ICD code
+  Each row should represent a single UNIQUE ICD code (no duplicate code values across rows)
   Only include codes explicitly found in the records
   Do not infer or generate ICD codes if not present
 
