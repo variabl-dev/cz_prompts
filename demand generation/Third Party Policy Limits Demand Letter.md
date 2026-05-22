@@ -146,24 +146,33 @@ Capture corroborating evidentiary anchors when documented: police report number,
 
 ### Liability
 
-State plainly and assertively why the defendant is at fault. This section should be **short and direct** — not a legal analysis or essay on negligence theory. Do NOT discuss duty of care, causation frameworks, or legal reasoning. Simply state what the defendant did wrong and why they are liable.
+State plainly why the defendant is at fault. This section should be **short, direct, and measured** — not a legal analysis, not an essay on negligence theory, and not a complaint preview. Do NOT discuss duty of care, causation frameworks, or legal reasoning. Simply state what the defendant did wrong, surface the supporting evidence, and identify the parties.
 
-- Open with a bold/underlined/italic statement establishing that liability is clear
-- State the defendant's specific negligent conduct (e.g., ran a red light, failed to yield, made an unsafe lane change)
-- Reference **every** applicable California Vehicle Code section supported by the fact pattern, with bold formatting (e.g., **Cal. Veh. Code § 22107**). Do NOT limit citations to the single "primary collision factor" — include all statutes the defendant violated. Common categories to scan for:
+**CRITICAL — Minimalist theory selection.** Liability theory is judgment-laden work that the reviewing attorney must own. The drafting model's job is to surface the documented facts and the statutes those facts support — NOT to choose advanced doctrinal theories. The model MUST NOT:
+
+- Name advanced doctrinal theories such as **negligent entrustment, negligent hiring, negligent supervision, joint venture, agency, alter ego, dangerous instrumentality,** or similar. These theories require fact-specific knowledge elements (e.g., "knew or should have known") that demand letters should not assert pre-discovery. If the attorney wants to plead negligent entrustment, the attorney will add it.
+- Assert knowledge elements about parties' states of mind ("knew or should have known," "had reason to know," "was aware that") unless those facts appear verbatim in the source records.
+- Use maximalist phrasing such as "sole proximate cause," "legally prohibited," "indisputably liable," "uncontroverted negligence" unless those phrases appear verbatim in the source records. Prefer measured framing such as "acts and/or omissions," "joint responsibility," "responsible for the resulting harm."
+
+**Drafting rules:**
+
+- Open with a bold/underlined/italic statement establishing that liability is clear (one short sentence — do not stack adjectives).
+- State the defendant's specific negligent conduct in plain terms (e.g., ran a red light, failed to yield, made an unsafe turning movement).
+- Reference applicable California Vehicle Code sections with bold formatting (e.g., **Cal. Veh. Code § 22107**). Include the statutes the facts clearly support. Common categories to scan for:
   - Unsafe turning / movement (e.g., § 22107)
-  - Pedestrian right-of-way (e.g., § 21950)
-  - Provisional license restrictions (e.g., § 12814.6) when the driver is a minor or provisional licensee, especially regarding passenger-age limits
-  - Following too closely, speed laws, red-light / stop-sign violations, lane changes, DUI, distracted driving — whichever apply
-- **CRITICAL — Surface citation events distinctly from underlying violations.** Before drafting this section, scan the Traffic Collision Report, police narrative, citation forms, and any DMV records for explicit language indicating the driver was *cited* (e.g., "issued a citation for," "cited under," "citation #," "ticket issued"). A *citation* is a specific evidentiary event — not the same as describing a statute the driver violated. If the records confirm a citation was issued, you MUST state that fact explicitly in its own sentence, naming the statute the citation was issued under (e.g., "Officer Masten issued Ms. Chang a citation for violation of California Vehicle Code § 12814.6."). Do NOT collapse the citation into a generic "violated the Vehicle Code" sentence. If the records do not confirm a citation, do NOT fabricate one — describe the violation only.
-- Reference police reports, citations, surveillance footage, and liability acceptance correspondence if available
-- Identify ALL responsible parties **by full name**:
-  - The individual driver — full name
-  - Employer (e.g., Lyft/Uber) if the vehicle was in commercial use — full company name
-  - The vehicle's registered owner if different from the driver — **the owner MUST be identified by their full name as documented in the police report, DMV records, or registration documents.** Do NOT use generic phrases such as "the registered owner" or "the vehicle's owner" when the records identify them by name. If the owner is named in the source data, that name MUST appear in the Liability section.
-  - Where the owner negligently entrusted the vehicle to an unfit or restricted driver (e.g., a provisional licensee transporting prohibited passengers, an intoxicated driver, a driver with a known dangerous record), name **negligent entrustment** as an additional theory of liability against the owner — and again, name the owner explicitly in that sentence.
-- Do not speculate — rely only on documented facts
-- Keep this section concise — a few paragraphs at most
+  - Pedestrian right-of-way (e.g., § 21950) — note: § 21950's right-of-way duty is statutorily tied to **marked crosswalks** or **unmarked crosswalks at an intersection**. For incidents in private parking lots, prefer the broader due-care language in § 21950(c) or omit the section if no crosswalk is involved.
+  - Do NOT cite § 21952 for parking-lot incidents — that section is statutorily limited to driving over a sidewalk.
+  - Provisional license restrictions (e.g., § 12814.6) when the driver is a provisional licensee — but cite this in support of the driver's negligence framework, not as an independent doctrinal theory against the owner.
+  - Following too closely, speed laws, red-light / stop-sign violations, lane changes, DUI, distracted driving — whichever the facts support.
+- Cite only the strongest one or two statutes that clearly apply. Stacking every plausibly-applicable code section can read as overreach to a seasoned adjuster.
+- **CRITICAL — Surface citation events.** Before drafting this section, scan the Traffic Collision Report, police narrative, citation forms, and any DMV records for explicit language indicating the driver was *cited* (e.g., "issued a citation for," "cited under," "citation #," "ticket issued"). A *citation* is independently admissible evidence — not the same as describing a statute the driver violated. If the records confirm a citation was issued, state that fact in its own sentence, naming the statute (e.g., "Officer Masten issued Ms. Chang a citation for violation of California Vehicle Code § 12814.6."). Lead with the citation event when one exists — it is stronger evidence than a generic violation description. If the records do not confirm a citation, do NOT fabricate one.
+- Reference police reports, surveillance footage, and any liability acceptance correspondence when available.
+- **Identify responsible parties conservatively:**
+  - The individual driver — full name as documented.
+  - Employer (e.g., Lyft/Uber) — only if the records clearly establish the vehicle was being operated in the course and scope of employment. Do NOT assert employer liability speculatively.
+  - The vehicle's owner if different from the driver — when the records show a separate owner, identify them by full name and state that they are a co-owner (or owner) jointly responsible for the resulting harm. Use the conservative formulation: "[Owner Name], as co-owner of the vehicle, bears joint responsibility for the resulting harm." Do NOT name negligent entrustment, do NOT assert knowledge elements, do NOT use "legally prohibited" or similar maximalist language. The reviewing attorney will decide whether to escalate the owner-liability theory.
+- Do not speculate — rely only on documented facts.
+- Keep this section concise — two or three paragraphs at most.
 
 ---
 
