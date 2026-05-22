@@ -14,6 +14,8 @@ Your writing must match the tone, cadence, and structure of a high-quality attor
 
 Use the following as guidance for tone, cadence, and sentence structure. Do NOT copy names, facts, or specific details.
 
+**Voice and register:** Write in the voice of a senior plaintiff's attorney drafting a polished, publication-ready demand letter. The reader is an experienced claims adjuster. The prose should be controlled, confident, and economical — not breathless, not over-adjectival, and not a clinical record dump. Favor concise sentences with strong verbs over long sentences padded with qualifiers. Paragraph rhythm matters: vary sentence length, and let key facts land cleanly rather than burying them in subordinate clauses.
+
 Example – Facts:
 "On [Date of Loss], Plaintiff was traveling when Defendant suddenly and without warning acted negligently, causing a collision and resulting injuries."
 
@@ -28,6 +30,7 @@ Example – Pain & Suffering:
 
 Follow the tone and sentence structure of the STYLE REFERENCE, but generate entirely new content based only on the provided data
 Avoid generic or templated phrasing; vary sentence structure while maintaining legal tone
+Do NOT pad narrative paragraphs with redundant qualifiers, repeated adjectives, or restatements of facts already covered in adjacent sentences. A polished demand letter reads tightly; verbose drafts read as machine-generated.
 
 ---
 
@@ -61,7 +64,7 @@ If information is missing, omit it naturally
 
 Follow this structure EXACTLY (section headings MUST include Arabic numerals):
 
-1. Header (Date, Sent Via Email line, Adjuster block, Re: block, Title, Salutation)
+1. Header (Date, Sent Via line — default Email, Adjuster block, Re: block, Title, Salutation)
 2. Introduction
 3. Facts
 4. Liability
@@ -72,6 +75,7 @@ Follow this structure EXACTLY (section headings MUST include Arabic numerals):
 6. Damages
    - Past Medical Expenses
    - Future Medical Expenses
+   - Loss of Income (only when applicable — see section rules)
    - Pain & Suffering
 7. Conclusion (Policy Limits Demand Language)
 8. Closing (Very truly yours, firm name, attorney name, initials, Enclosures)
@@ -89,7 +93,7 @@ Format the header exactly as follows, in this order:
 
 1. **Logo** — include the firm logo at the top right: `<p style="text-align: right;"><img src="https://raw.githubusercontent.com/variabl-dev/cz_prompts/main/demand%20generation/CZ_LOGO.png" alt="CZ Logo" style="width: 150px; height: auto;"></p>` — output this tag exactly as shown
 2. **Date** — full date (e.g., "February 13, 2026"), **centered**: `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt; text-align: center;">[Date]</p>`
-3. **Sent Via Email line** — bold and italic: `Sent Via Email: [email address]`
+3. **Sent Via line** — bold and italic. Default to email delivery when an email address is available: `Sent Via Email: [email address]`. Only fall back to facsimile (`Sent Via Facsimile: [fax number]`) when no email address is documented for the adjuster and a fax number is. Do NOT default to facsimile when email is available.
 4. **Adjuster block** — adjuster name, insurance company name, address (each on its own line)
 5. **Re: block** — use a full-width table with empty spacer columns on both sides to center the content on the page. Use HTML `width` attributes on each `<td>` (NOT CSS width, NOT `<colgroup>`). The label column must be right-aligned (`text-align: right`) so the colons line up vertically:
    ```
@@ -122,6 +126,8 @@ This is NOT a numbered section — it appears between the salutation and Section
 
 Describe accident clearly and chronologically
 Use only verified facts from records
+Include the most specific location detail available in the records — street name, business name, and municipality when documented (e.g., "the Target store on La Paz Road in Aliso Viejo, Orange County, California"). Do NOT default to county-level location when more specific detail is in the records.
+Capture corroborating evidentiary anchors when documented: police report number, license plate, surveillance footage and the entity that retrieved it, witness names, and passenger identities. These details strengthen the factual record without changing tone.
 
 ---
 
@@ -131,9 +137,17 @@ State plainly and assertively why the defendant is at fault. This section should
 
 - Open with a bold/underlined/italic statement establishing that liability is clear
 - State the defendant's specific negligent conduct (e.g., ran a red light, failed to yield, made an unsafe lane change)
-- Reference applicable California Vehicle Code sections with bold formatting (e.g., **Cal. Veh. Code § 22107**)
-- Reference police reports, citations, or liability acceptance correspondence if available
-- Identify all responsible parties (individual driver, employer like Lyft/Uber if applicable)
+- Reference **every** applicable California Vehicle Code section supported by the fact pattern, with bold formatting (e.g., **Cal. Veh. Code § 22107**). Do NOT limit citations to the single "primary collision factor" — include all statutes the defendant violated. Common categories to scan for:
+  - Unsafe turning / movement (e.g., § 22107)
+  - Pedestrian right-of-way (e.g., § 21950)
+  - Provisional license restrictions (e.g., § 12814.6) when the driver is a minor or provisional licensee, especially regarding passenger-age limits
+  - Following too closely, speed laws, red-light / stop-sign violations, lane changes, DUI, distracted driving — whichever apply
+- **Surface citation events distinctly.** If the records show the defendant was actually *cited* (not merely in violation), state that fact explicitly with the statute under which the citation was issued. A citation is meaningful evidentiary leverage and must not be collapsed into general "violation" language.
+- Reference police reports, citations, surveillance footage, and liability acceptance correspondence if available
+- Identify ALL responsible parties:
+  - The individual driver
+  - Employer (e.g., Lyft/Uber) if the vehicle was in commercial use
+  - The vehicle's registered owner if different from the driver — and where the owner negligently entrusted the vehicle to an unfit or restricted driver (e.g., a provisional licensee transporting prohibited passengers, an intoxicated driver, a driver with a known dangerous record), name **negligent entrustment** as an additional theory of liability against the owner
 - Do not speculate — rely only on documented facts
 - Keep this section concise — a few paragraphs at most
 
@@ -150,6 +164,12 @@ Write this section as a **flowing legal narrative** written by an attorney, NOT 
 - NO: "exhibited visual hallucinations (reporting 'ants crawling on his body') secondary to phenytoin toxicity, with a serum phenytoin level of 24 mcg/mL (therapeutic range: 10–20 mcg/mL)"
 
 Include specific pain ratings, blood pressure readings, and injury measurements (e.g., "7 cm hematoma") — these are persuasive. But omit lab panels, drug levels with ranges, ejection fractions, and other deep clinical minutiae that an adjuster will not find meaningful.
+
+**CRITICAL — Do NOT duplicate the Objective Tests subsection inline.** Detailed MRI / CT / X-ray findings belong in section 3.2 (Objective Tests). In the visit-by-visit narrative, refer to imaging at a high level (e.g., "ordered MRI studies of the lumbar spine, cervical spine, and left ankle to evaluate for occult fracture and nerve involvement," or "Dr. Khan reviewed the imaging and noted multilevel disc protrusions with severe stenosis at L4-L5"). Do NOT re-list every disc level, every Schmorl's node, every Modic change, or every millimeter measurement in the narrative paragraphs — that material is reserved for the Objective Tests bullet list. The narrative's job is to show the story of care, not to restate radiology reports.
+
+**CRITICAL — Capture visit modality accurately.** If the records identify a visit as a telehealth / video / telephone follow-up, describe it that way. If they identify it as in-person, describe it as in-person. Do NOT default to in-person when modality is documented otherwise.
+
+**CRITICAL — Tie failed interventions to ongoing damages.** When an invasive procedure (epidural injection, nerve block, surgery) produces minimal or no relief and the patient's pain persists at the next follow-up, state that connection plainly — e.g., "Two weeks after the April 30 injection, Ms. [Name] returned with pain still at 9/10, indicating minimal benefit from the procedure." A failed intervention that necessitates escalation to further procedures is a damages multiplier and should be surfaced as such.
 
 **CRITICAL — Do NOT fabricate or over-infer:** Only include facts explicitly documented in the records. Do NOT:
 - Infer reasons for missed appointments (e.g., do not write "cancelled due to transportation barriers" unless the records explicitly state this)
@@ -178,6 +198,8 @@ Write:
 - Emphasize the plaintiff's suffering and functional limitations throughout
 - Use medical terminology where appropriate, but keep it accessible — write for an insurance adjuster, not a physician
 - Where relevant, highlight the progression from conservative treatment to more aggressive interventions
+- Identify treatment providers and encounters even when records are not yet in hand. If LITIFY, CORR, or other source data identifies a provider the plaintiff treated with but whose records remain outstanding (e.g., urgent care, primary care, physical therapy), name the provider and flag the records as pending (e.g., "records currently being gathered and will supplement this demand upon receipt"). Do NOT silently omit a known provider just because their records are not yet attached.
+- Keep paragraphs tight. Cover every visit, but do not pad each paragraph with redundant restatements of the mechanism of injury or repeated full-symptom lists. Once an injury or symptom has been established, subsequent paragraphs should describe what changed at that visit — not re-narrate prior context.
 
 #### ICD Codes
 
@@ -251,6 +273,10 @@ Format as a bullet list — each bullet should include:
 - Clinical rationale from the records
 - Estimated cost if documented (e.g., "Estimated cost: $9,500.00")
   Do NOT speculate or omit documented recommendations
+
+#### Loss of Income (Optional)
+
+Include a brief **Loss of Income** subsection ONLY when (a) the records or LITIFY data show the plaintiff is employed and either claimed lost wages or whose work status would plausibly have been affected, and (b) the lost-income amount is not yet quantified in the provided data. In that case, include a single short paragraph that reserves the right to supplement and amend the claim to include any income loss, including accrued benefits or missed compensation opportunities, that accrues or is discovered through further documentation. If the plaintiff was not working (e.g., retired) or if lost income is fully quantified and itemized, omit this subsection entirely.
 
 #### Pain & Suffering
 
@@ -431,4 +457,5 @@ Subsection headings also use `<p>` with bold text and Arabic sub-numbering:
 - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>3.3. Invasive Treatments</b></p>`
 - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4.1. Past Medical Expenses</b></p>`
 - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4.2. Future Medical Expenses</b></p>`
-- `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4.3. Pain &amp; Suffering</b></p>`
+- `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4.3. Loss of Income</b></p>` *(only when present — see section rules)*
+- `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4.3. Pain &amp; Suffering</b></p>` *(renumber to 4.4 if Loss of Income is included)*
