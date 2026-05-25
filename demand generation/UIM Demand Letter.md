@@ -22,6 +22,26 @@ This is an **Underinsured Motorist (UIM)** settlement demand. It is **secondary*
 
 ---
 
+## JURISDICTION / STATE OF FILING
+
+The user will provide the state in which this case was filed in the input — e.g., "This state case was filed in: California" or "This state case was filed in: Washington D.C.". Only two values are supported: **California** or **Washington D.C.** (also written "D.C." or "District of Columbia"). Adapt every statutory citation in this letter to the law of the filing state per the rules below.
+
+If the filing state is **California**, or if no filing state is identified in the input, retain the California citations as written throughout this prompt (Cal. Veh. Code §, California Evidence Code § 1152, P.S.T., etc.).
+
+If the filing state is **Washington D.C.**:
+
+- **Vehicle / traffic code citations** — replace every "Cal. Veh. Code § X" reference with the D.C. equivalent. Cite the **D.C. Code (Title 50, Motor Vehicles and Traffic)** where the offense is codified there, and fall back to **Title 18 of the D.C. Municipal Regulations (DCMR)** for routine movement, turning, right-of-way, and signal rules that live in the regs. High-confidence mappings:
+  - Hit-and-run / leaving the scene → **D.C. Code § 50-2201.05c**
+  - Reckless driving → **D.C. Code § 50-2201.04**
+  - DUI → **D.C. Code § 50-2206.11**
+  - Unsafe turning, pedestrian right-of-way, following too closely, speed, lane changes, traffic signals → cite the relevant section of **18 DCMR** (e.g., 18 DCMR § 2204 for turning movements; 18 DCMR § 2304 for pedestrian right-of-way). If you are not confident of the exact DCMR section number for a given rule, describe the conduct in plain terms ("violated D.C. traffic regulations governing turning movements") rather than guess a number.
+- **Settlement / inadmissibility statute** — replace "Evidence Code § 1152" with **Federal Rule of Evidence 408**. Phrasing: "this is a confidential settlement demand as contemplated by Federal Rule of Evidence 408 and is inadmissible at arbitration in the matters of liability and damages."
+- **Timezone in deadlines** — replace "P.S.T." with **"E.S.T."** for D.C. deadlines.
+
+Do NOT fabricate a statute number that you are not confident exists. Plain-language framing without a number is always preferable to a wrong citation. The "do not hallucinate" rule applies to citations as strongly as it applies to facts.
+
+---
+
 ## STYLE REFERENCE
 
 Use the following as guidance for tone, cadence, and sentence structure. Do NOT copy names, facts, or specific details.
@@ -38,7 +58,7 @@ Example – Treatment Narrative:
 Example – Pain & Suffering:
 "Plaintiff's daily life has been significantly impacted, with ongoing pain affecting basic activities such as walking, sitting, and sleeping."
 
-Example – UIM Introduction:
+Example – UIM Introduction (California version — for a D.C. filing, swap "Evidence Code § 1152" for "Federal Rule of Evidence 408" per the JURISDICTION section):
 "Please accept this letter as a formal request to settle the above-mentioned claim for our client's available underinsured motorist policy limit. Please note that this is a confidential settlement demand as contemplated by Evidence Code § 1152 and is inadmissible at arbitration in the matters of liability and damages. This letter follows the tendering of the at-fault driver's bodily injury policy limits of $[Amount] per person by [Prior Carrier] under claim no. [Prior Claim Number]. The requisite documentation concerning the resolution of the third-party claim is enclosed."
 
 Follow the tone and sentence structure of the STYLE REFERENCE, but generate entirely new content based only on the provided data
@@ -130,7 +150,7 @@ Format the header exactly as follows, in this order:
 
 The introduction is NOT a numbered section — it appears between the salutation and Section 1. It MUST include two distinct paragraphs:
 
-**Paragraph 1 — Purpose and confidentiality.** State that this letter is a formal request to settle the claim for the client's available underinsured motorist policy limit. Include Evidence Code § 1152 confidentiality language, noting that the demand is inadmissible at arbitration on liability and damages.
+**Paragraph 1 — Purpose and confidentiality.** State that this letter is a formal request to settle the claim for the client's available underinsured motorist policy limit. Include settlement-inadmissibility language, noting that the demand is inadmissible at arbitration on liability and damages. For California cases cite **Evidence Code § 1152**; for D.C. cases cite **Federal Rule of Evidence 408** (see the JURISDICTION section).
 
 **Paragraph 2 — Prior third-party settlement context.** This is REQUIRED. State that this letter follows the tendering of the at-fault driver's bodily injury policy limits, and include:
 
@@ -157,7 +177,7 @@ State plainly and assertively why the at-fault third-party driver is at fault. T
 
 - Open with a bold/underlined/italic statement establishing that liability is clear
 - State the at-fault driver's specific negligent conduct (e.g., ran a red light, failed to yield, made an unsafe lane change)
-- Reference applicable California Vehicle Code sections with bold formatting (e.g., **Cal. Veh. Code § 22107**)
+- Reference applicable traffic / vehicle code sections from the filing state, with bold formatting. California cases use the California Vehicle Code (e.g., **Cal. Veh. Code § 22107**); D.C. cases use D.C. Code Title 50 or 18 DCMR (e.g., **D.C. Code § 50-2201.04**, **18 DCMR § 2204**) — see the JURISDICTION section for mappings
 - Reference police reports, citations, or liability acceptance correspondence if available
 - Do not speculate — rely only on documented facts
 - Keep this section concise — a few paragraphs at most
@@ -302,11 +322,11 @@ Write a compelling, detailed, human-centered narrative across **multiple paragra
 
 **CRITICAL — Do NOT state the UIM policy limits dollar amount.** Refer only to "the available underinsured motorist policy limit" generically.
 
-**CRITICAL — The deadline must be at least 30 days from the letter date.** Calculate 30 days from the letter date and use that as the minimum deadline. If 30 days falls on a weekend or holiday, extend to the next business day. State the deadline at 12:00 p.m., P.S.T.
+**CRITICAL — The deadline must be at least 30 days from the letter date.** Calculate 30 days from the letter date and use that as the minimum deadline. If 30 days falls on a weekend or holiday, extend to the next business day. State the deadline at 12:00 p.m. in the filing state's timezone — **P.S.T.** for California, **E.S.T.** for D.C. (see the JURISDICTION section).
 
 The conclusion should consist of **two short paragraphs**:
 
-1. **Settlement offer paragraph.** In the spirit of compromise, offer to resolve the claim now for the available underinsured motorist policy limit. State the deadline (date and time, P.S.T.). State that if amicable resolution is not reached by that time, the client will no longer be interested in settling for the UIM policy limit and will demand arbitration.
+1. **Settlement offer paragraph.** In the spirit of compromise, offer to resolve the claim now for the available underinsured motorist policy limit. State the deadline (date and time, using the filing state's timezone — P.S.T. for California, E.S.T. for D.C.). State that if amicable resolution is not reached by that time, the client will no longer be interested in settling for the UIM policy limit and will demand arbitration.
 
 2. **Arbitration logistics paragraph.** Request that, in the event arbitration is required, the adjuster forward a list of three (3) fair, neutral, and unbiased arbitrators acceptable to arbitrate the matter. State intent to calendar the matter for arbitration as soon as possible should the carrier choose not to settle.
 

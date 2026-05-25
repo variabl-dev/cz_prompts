@@ -22,6 +22,26 @@ This is an **Uninsured Motorist (UM)** settlement demand. The at-fault driver ha
 
 ---
 
+## JURISDICTION / STATE OF FILING
+
+The user will provide the state in which this case was filed in the input — e.g., "This state case was filed in: California" or "This state case was filed in: Washington D.C.". Only two values are supported: **California** or **Washington D.C.** (also written "D.C." or "District of Columbia"). Adapt every statutory citation in this letter to the law of the filing state per the rules below.
+
+If the filing state is **California**, or if no filing state is identified in the input, retain the California citations as written throughout this prompt (Cal. Veh. Code §, P.S.T., etc.).
+
+If the filing state is **Washington D.C.**:
+
+- **Vehicle / traffic code citations** — replace every "Cal. Veh. Code § X" reference with the D.C. equivalent. Cite the **D.C. Code (Title 50, Motor Vehicles and Traffic)** where the offense is codified there, and fall back to **Title 18 of the D.C. Municipal Regulations (DCMR)** for routine movement, turning, right-of-way, and signal rules that live in the regs. High-confidence mappings:
+  - Hit-and-run / leaving the scene → **D.C. Code § 50-2201.05c** (this is the D.C. analog to Cal. Veh. Code § 20001)
+  - Reckless driving → **D.C. Code § 50-2201.04**
+  - DUI → **D.C. Code § 50-2206.11**
+  - Unsafe turning, pedestrian right-of-way, following too closely, speed, lane changes, traffic signals → cite the relevant section of **18 DCMR** (e.g., 18 DCMR § 2204 for turning movements; 18 DCMR § 2304 for pedestrian right-of-way). If you are not confident of the exact DCMR section number for a given rule, describe the conduct in plain terms ("violated D.C. traffic regulations governing turning movements") rather than guess a number.
+- **Settlement / inadmissibility statute** — if any inadmissibility language is included, use **Federal Rule of Evidence 408** for D.C. cases (California uses Evidence Code § 1152).
+- **Timezone in deadlines** — replace "P.S.T." with **"E.S.T."** for D.C. deadlines.
+
+Do NOT fabricate a statute number that you are not confident exists. Plain-language framing without a number is always preferable to a wrong citation. The "do not hallucinate" rule applies to citations as strongly as it applies to facts.
+
+---
+
 ## STYLE REFERENCE
 
 Use the following as guidance for tone, cadence, and sentence structure. Do NOT copy names, facts, or specific details.
@@ -147,7 +167,7 @@ State plainly and assertively why the at-fault driver is at fault. This section 
 
 - Open with a bold/underlined/italic statement establishing that liability is clear
 - State the at-fault driver's specific negligent conduct (e.g., ran a red light, failed to yield, made an unsafe lane change, fled the scene)
-- Reference applicable California Vehicle Code sections with bold formatting (e.g., **Cal. Veh. Code § 22107**, **Cal. Veh. Code § 20001** for hit-and-run)
+- Reference applicable traffic / vehicle code sections from the filing state, with bold formatting. California cases use the California Vehicle Code (e.g., **Cal. Veh. Code § 22107**; **Cal. Veh. Code § 20001** for hit-and-run); D.C. cases use D.C. Code Title 50 or 18 DCMR (e.g., **D.C. Code § 50-2201.05c** for hit-and-run; **D.C. Code § 50-2201.04** for reckless driving; **18 DCMR § 2204** for unsafe turning) — see the JURISDICTION section for mappings
 - Reference police reports, citations, or liability acceptance correspondence if available
 - For unidentified/hit-and-run motorists, reference the Traffic Collision Report and the investigating officer's determination
 - Do not speculate — rely only on documented facts
@@ -293,11 +313,11 @@ Write a compelling, detailed, human-centered narrative across **multiple paragra
 
 **CRITICAL — Do NOT state the UM policy limits dollar amount.** Refer only to "the available uninsured motorist policy limit" generically.
 
-**CRITICAL — The deadline must be at least 30 days from the letter date.** Calculate 30 days from the letter date and use that as the minimum deadline. If 30 days falls on a weekend or holiday, extend to the next business day. State the deadline at 12:00 p.m., P.S.T.
+**CRITICAL — The deadline must be at least 30 days from the letter date.** Calculate 30 days from the letter date and use that as the minimum deadline. If 30 days falls on a weekend or holiday, extend to the next business day. State the deadline at 12:00 p.m. in the filing state's timezone — **P.S.T.** for California, **E.S.T.** for D.C. (see the JURISDICTION section).
 
 The conclusion should consist of **two short paragraphs**:
 
-1. **Settlement offer paragraph.** In the spirit of compromise, offer to resolve the claim now for the available uninsured motorist policy limit. State the deadline (date and time, P.S.T.). State that if amicable resolution is not reached by that time, the client will no longer be interested in settling for the uninsured policy limit and will demand arbitration.
+1. **Settlement offer paragraph.** In the spirit of compromise, offer to resolve the claim now for the available uninsured motorist policy limit. State the deadline (date and time, using the filing state's timezone — P.S.T. for California, E.S.T. for D.C.). State that if amicable resolution is not reached by that time, the client will no longer be interested in settling for the uninsured policy limit and will demand arbitration.
 
 2. **Arbitration logistics paragraph.** Request that, in the event arbitration is required, the adjuster forward a list of three (3) fair, neutral, and unbiased arbitrators acceptable to arbitrate the matter. State intent to calendar the matter for arbitration as soon as possible should the carrier choose not to settle.
 
