@@ -10,7 +10,9 @@ Email text: <body of the email that delivered the document, may be empty>
 Document text: <text extracted from the attached or embedded document, may be empty>
 ```
 
-You are classifying the **Document text** only. The Email text is provided as background context (e.g., to disambiguate which case a document refers to, or to clarify what an attachment is) and must NOT itself be classified. Do not treat the email body as the document being categorized — even if the email body contains invoice-like or receipt-like language, classify based on what the Document text represents.
+You are classifying the **Document text** only. The Email text is provided as background context (e.g., to disambiguate an ambiguous case reference already present in the document) and must NOT itself be classified. Do not treat the email body as the document being categorized — even if the email body contains invoice-like or receipt-like language, classify based on what the Document text represents.
+
+The Email text **cannot** be used to establish that a document is case-related. A generic firm-level invoice does not become case-related just because the email it arrived in mentions a case. Case linkage must be visible in the Document text itself.
 
 If the Document text is empty, output `NON_COST`.
 
@@ -84,11 +86,13 @@ If the Document text contains invoice language, a billing request, expense detai
 
 ## Rules
 
-- Classify based on the Document text. Use the Email text only as background context (e.g., to identify which case a document relates to).
+- Classify based on the Document text. Use the Email text only as background context (e.g., to disambiguate an ambiguous case reference already present in the Document text).
 - Do not classify the email body itself. If the email body contains invoice-like or receipt-like language but the Document text does not, the classification reflects the Document text.
 - Do not treat the law firm itself as a “client” for case relevance purposes
-- Case relevance may be established by either the Document text or the Email text — if the email explicitly references a specific case, matter, claim, file number, or end client tied to the document, that linkage counts.
-- Do not infer case relevance unless a specific case, matter, claim, file number, or end client is explicitly stated in either part
+- **Case relevance must be established by the Document text itself.** The document must explicitly identify a specific case, matter, claim, file number, or end client — for example via a case caption, matter number, claim number, client name on the invoice, or an itemized line tied to a specific case.
+- The Email text alone cannot make a document case-related. If the Document text shows a generic firm-level expense (e.g., a Westlaw subscription, an office supply order, a SaaS bill) and the email merely mentions a case in passing or forwards the bill alongside case discussion, the classification is **NOT** case-related.
+- The Email text may only be used to resolve ambiguity in a case reference that already exists in the Document text (e.g., the document says "re: your client" and the email clarifies which client). It cannot introduce case linkage that is absent from the Document text.
+- Default to NOT case-related when in doubt. Prefer GENERAL_INVOICE_NOT_CASE_RELATED or CREDIT_CARD_RECEIPT_NOT_CASE_RELATED unless the Document text gives an explicit, document-level case linkage.
 - Determine whether the Document text is a credit card receipt **before** determining case relevance
 - If the Document text is a credit card receipt, choose one of the CREDIT_CARD_RECEIPT categories
 - If the Document text is tied to a specific case or matter and is not a credit card receipt, choose COST_INVOICE_CASE_RELATED
