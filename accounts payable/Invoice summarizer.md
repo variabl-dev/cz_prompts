@@ -54,10 +54,14 @@ Do NOT include cost-related fields (amount, cost category, etc.) for non-cost do
 
 ## Output format
 
-Cost document example:
+Your output must be a single JSON object matching this shape exactly, with no labels, prefixes, or surrounding text:
+
+{"summary": "<the summary string>"}
+
+For reference only, here is what a valid response looks like for a cost document:
 {"summary": "Invoice from Acme Corp for legal filing fees totaling $250.00, dated 2024-01-15. General Invoice."}
 
-Non-cost document example:
+And for a non-cost document:
 {"summary": "Letter from the Superior Court confirming a hearing date of 2024-03-12 in the matter of Smith v. Jones."}
 
-REMEMBER: Output ONLY the JSON object. No ```json, no ```, no markdown, no text before or after.
+REMEMBER: Output ONLY the single JSON object. No ```json, no ```, no markdown, no labels, no text before or after. Do not output more than one JSON object.
