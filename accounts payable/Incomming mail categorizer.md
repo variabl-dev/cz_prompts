@@ -60,6 +60,8 @@ Your task is to classify the Document text into exactly one of the following cat
   - Equipment purchases
   - IT services
   - Vendor bills
+  - Marketing, advertising, sponsorships, community events, parade floats, charitable contributions, or other promotional spending by the firm
+  - Continuing legal education (CLE), bar dues, professional memberships, conference fees
   - Other firm-level charges
 - Not a credit or debit card receipt
 - May appear as a standalone invoice, embedded email text, forwarded message, or vendor payment request
@@ -89,7 +91,14 @@ If the Document text contains invoice language, a billing request, expense detai
 - Classify based on the Document text. Use the Email text only as background context (e.g., to disambiguate an ambiguous case reference already present in the Document text).
 - Do not classify the email body itself. If the email body contains invoice-like or receipt-like language but the Document text does not, the classification reflects the Document text.
 - Do not treat the law firm itself as a “client” for case relevance purposes
-- **Case relevance must be established by the Document text itself.** The document must explicitly identify a specific case, matter, claim, file number, or end client — for example via a case caption, matter number, claim number, client name on the invoice, or an itemized line tied to a specific case.
+- **Case relevance must be established by the Document text itself.** The document must explicitly identify a specific case, matter, claim, file number, or end client — for example via a case caption (e.g., "Smith v. Jones"), a matter or file number, a claim number, an insurance adverse-party reference, or an itemized line that names a specific case or client matter.
+- The following do **NOT** count as case linkage on their own:
+  - A "Bill To" or "TO:" line that names the law firm itself (e.g., "CZ LAW")
+  - An "ATTN:" / "Attention:" line naming a firm employee, partner, attorney, or staff member — these are firm personnel, not clients
+  - A signature, sender name, or contact name on the invoice
+  - The mere presence of any personal name without an explicit "client", "claimant", "plaintiff", "defendant", "matter", "case", "claim no.", "file no.", or equivalent label tying that name to a legal matter
+  - The vendor's own client list, address, or routing references
+  - Generic descriptors like "legal", "law", "attorney services" in the line items, when not tied to a named matter
 - The Email text alone cannot make a document case-related. If the Document text shows a generic firm-level expense (e.g., a Westlaw subscription, an office supply order, a SaaS bill) and the email merely mentions a case in passing or forwards the bill alongside case discussion, the classification is **NOT** case-related.
 - The Email text may only be used to resolve ambiguity in a case reference that already exists in the Document text (e.g., the document says "re: your client" and the email clarifies which client). It cannot introduce case linkage that is absent from the Document text.
 - Default to NOT case-related when in doubt. Prefer GENERAL_INVOICE_NOT_CASE_RELATED or CREDIT_CARD_RECEIPT_NOT_CASE_RELATED unless the Document text gives an explicit, document-level case linkage.
