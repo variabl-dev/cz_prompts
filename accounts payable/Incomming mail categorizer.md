@@ -69,22 +69,37 @@ Your task is to classify the Document text into exactly one of the following cat
 
 ### 5. NON_COST
 
-- Text that does **not** contain a financial charge, payable invoice, expense, billing record, reimbursement request, or completed payment
-- Includes operational or informational materials such as:
+- Text that does **not** itself request payment of a specific amount and does **not** record a specific completed payment
+- A document is NON_COST if it lacks an "amount due", "total due", "balance", "amount paid", "amount charged", or equivalent monetary demand or transaction record tied to the document itself
+- Includes operational, informational, evidentiary, or administrative materials such as:
   - General email correspondence
-  - Legal pleadings
-  - Medical records
-  - Contracts
-  - Letters
-  - Reports
-  - Court filings
-  - Internal memos
-  - Scheduling or administrative messages
+  - Legal pleadings, court filings, motions, orders
+  - Police reports, traffic crash reports, accident reports, incident reports
+  - Medical records, medical reports, imaging reports
+  - Tax forms (W-9, W-4, W-2, 1099, etc.) and other IRS/government forms
+  - Contracts, retainer agreements, engagement letters, NDAs
+  - Identification documents, driver's licenses, insurance ID cards
+  - Letters, notices, demand letters, correspondence
+  - Reports, summaries, transcripts, depositions
+  - Internal memos, staff messages
+  - Scheduling, calendaring, or administrative messages
+  - Forms requesting information (intake forms, questionnaires)
+- The document may reference money, payments, fees, withholding, or financial concepts in an informational or regulatory way without itself being an invoice or receipt — that alone does NOT make it a cost document
 - The document may reference a case or client but **does not represent a cost, invoice, receipt, or payment**
 - May include attachments or discussion of documents but **does not itself contain billing or expense information**
 
 **Important:**  
-If the Document text contains invoice language, a billing request, expense details, reimbursement information, payment amounts, or receipt details, it **must NOT** be classified as NON_COST. Invoice-like language appearing only in the Email text (and not in the Document text) does NOT disqualify a NON_COST classification.
+A document only qualifies as an invoice, bill, or receipt if it itself demands payment of a specific amount OR records a specific completed payment of a specific amount. Look for explicit fields such as "Invoice #", "Amount Due", "Total Due", "Balance", "Amount Paid", "Total Charged", "Receipt #", or a clear line-item table with a payable total. The mere presence of dollar amounts, fee references, or financial vocabulary inside a report, form, contract, pleading, or letter does NOT make it an invoice or receipt.
+
+If the Document text contains a real invoice, bill, or receipt as defined above, it **must NOT** be classified as NON_COST. Invoice-like language appearing only in the Email text (and not in the Document text) does NOT disqualify a NON_COST classification.
+
+**Decision order:**
+
+1. Is the Document text empty? → `NON_COST`
+2. Is the Document text actually an invoice, bill, or receipt (per the test above)? If NO → `NON_COST`. Tax forms, police/crash reports, medical records, court filings, contracts, letters, and notices are NOT invoices or receipts even when they mention money.
+3. Is it a credit/debit card receipt for a completed transaction? → one of the CREDIT_CARD_RECEIPT_* categories
+4. Otherwise it is an invoice/bill — one of the COST_INVOICE_CASE_RELATED or GENERAL_INVOICE_NOT_CASE_RELATED categories
+5. Apply the case-relevance test from the Rules section to pick the case-related vs. not-case-related variant
 
 ## Rules
 
