@@ -28,10 +28,12 @@ Your task is to classify the Document text into exactly one of the following cat
 
 ### 1. CREDIT_CARD_RECEIPT_CASE_RELATED
 
-- A receipt or transaction record for a completed credit or debit card payment
-- Typically includes card brand, masked card number, transaction date, merchant, and amount
+- A receipt or transaction record for a completed credit, debit, or card-equivalent payment
+- Indicators that the payment was a card transaction include any of: card brand (VISA, MC, AmEx, Discover), a masked card number, "Payment Method" set to credit/debit card or "Virtual Terminal" / "Card Present" / "Card on File" / "Stripe" / "Square" / "PayPal" / similar card processors, an authorization or approval code, or an "Amount Paid" entry on a "Payment Receipt" section bundled with the invoice
 - Represents a charge already paid
-- **Explicitly references a specific legal case, matter, claim, file number, or end client**
+- This category **also applies** when the Document text contains an invoice AND a payment-receipt section showing the invoice was paid by card — the receipt nature dominates the invoice nature
+- The card brand or masked number may appear in the Email text (e.g., the email body says "VISA ending in 2415") — that is sufficient to confirm card payment when the Document text shows a completed payment receipt
+- **Explicitly references a specific legal case, matter, claim, file number, or end client** (a medical/expert invoice with a Patient Name plus a Date of Loss / Date of Injury / Claim # qualifies)
 - Does NOT include general firm-level expenses billed to the law firm itself (e.g., software subscriptions, IT services, utilities)
 
 ### 2. COST_INVOICE_CASE_RELATED
@@ -44,7 +46,8 @@ Your task is to classify the Document text into exactly one of the following cat
 
 ### 3. CREDIT_CARD_RECEIPT_NOT_CASE_RELATED
 
-- A receipt or transaction record for a completed credit or debit card payment
+- A receipt or transaction record for a completed credit, debit, or card-equivalent payment (see CREDIT_CARD_RECEIPT_CASE_RELATED above for the full list of card-payment indicators — including "Payment Receipt" sections, "Virtual Terminal", Stripe/Square/PayPal, authorization codes, etc.)
+- Also applies when the Document text contains an invoice AND a payment-receipt section showing the invoice was paid by card
 - Represents a charge already paid
 - Does NOT explicitly reference a specific case, matter, claim, file number, or end client
 - Includes general business expenses charged to a law firm (e.g., SaaS tools, hosting, office supplies)
@@ -97,7 +100,7 @@ If the Document text contains a real invoice, bill, or receipt as defined above,
 
 1. Is the Document text empty? → `NON_COST`
 2. Is the Document text actually an invoice, bill, or receipt (per the test above)? If NO → `NON_COST`. Tax forms, police/crash reports, medical records, court filings, contracts, letters, and notices are NOT invoices or receipts even when they mention money.
-3. Is it a credit/debit card receipt for a completed transaction? → one of the CREDIT_CARD_RECEIPT_* categories
+3. Does the Document text show a card-paid transaction — either a standalone credit/debit card receipt, OR an invoice that also contains a payment-receipt section indicating card payment (see CREDIT_CARD_RECEIPT_CASE_RELATED for the full list of card-payment indicators, including "Payment Method: Virtual Terminal", "Stripe", "Square", masked card numbers, etc.)? If YES → one of the CREDIT_CARD_RECEIPT_* categories.
 4. Otherwise it is an invoice/bill — one of the COST_INVOICE_CASE_RELATED or GENERAL_INVOICE_NOT_CASE_RELATED categories
 5. Apply the case-relevance test from the Rules section to pick the case-related vs. not-case-related variant
 
@@ -106,7 +109,7 @@ If the Document text contains a real invoice, bill, or receipt as defined above,
 - Classify based on the Document text. Use the Email text only as background context (e.g., to disambiguate an ambiguous case reference already present in the Document text).
 - Do not classify the email body itself. If the email body contains invoice-like or receipt-like language but the Document text does not, the classification reflects the Document text.
 - Do not treat the law firm itself as a “client” for case relevance purposes
-- **Case relevance must be established by the Document text itself.** The document must explicitly identify a specific case, matter, claim, file number, or end client — for example via a case caption (e.g., "Smith v. Jones"), a matter or file number, a claim number, an insurance adverse-party reference, or an itemized line that names a specific case or client matter.
+- **Case relevance must be established by the Document text itself.** The document must explicitly identify a specific case, matter, claim, file number, or end client — for example via a case caption (e.g., "Smith v. Jones"), a matter or file number, a claim number, an insurance adverse-party reference, an itemized line that names a specific case or client matter, or — on medical/expert invoices billed to the law firm — a "Patient Name" / "Patient" / "Claimant" field combined with a "Date of Loss" (DOL), "Date of Injury" (DOI), claim number, or similar PI/case identifier.
 - The following do **NOT** count as case linkage on their own:
   - A "Bill To" or "TO:" line that names the law firm itself (e.g., "CZ LAW")
   - An "ATTN:" / "Attention:" line naming a firm employee, partner, attorney, or staff member — these are firm personnel, not clients
