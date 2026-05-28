@@ -79,7 +79,7 @@ Your task is to classify the Document text into exactly one of the following cat
   - Legal pleadings, court filings, motions, orders
   - Police reports, traffic crash reports, accident reports, incident reports
   - Medical records, medical reports, imaging reports
-  - Tax forms (W-9, W-4, W-2, 1099, etc.) and other IRS/government forms
+  - Tax forms (W-9, W-4, W-2, 1099, etc.) and other IRS/government forms. Identifying markers include any of: a form number such as "Form W-9", "Form W-4", "Form W-2", "Form 1099", an IRS revision date (e.g., "(Rev. October 2018)", "(Rev. March 2024)"), the title "Request for Taxpayer Identification Number and Certification" (W-9), "Give Form to the requester. Do not send to the IRS", a "Department of the Treasury — Internal Revenue Service" header, a "Backup Withholding" / "Certification" section, or a TIN / SSN / EIN entry field. These markers conclusively identify the document as a tax form, regardless of what other dollar-adjacent vocabulary appears. A W-9 is not an invoice even though it discusses payments, withholding, and tax classifications
   - Contracts, retainer agreements, engagement letters, NDAs
   - Identification documents, driver's licenses, insurance ID cards
   - Letters, notices, demand letters, correspondence
@@ -99,10 +99,11 @@ If the Document text contains a real invoice, bill, or receipt as defined above,
 **Decision order:**
 
 1. Is the Document text empty? → `NON_COST`
-2. Is the Document text actually an invoice, bill, or receipt (per the test above)? If NO → `NON_COST`. Tax forms, police/crash reports, medical records, court filings, contracts, letters, and notices are NOT invoices or receipts even when they mention money.
-3. Does the Document text show a card-paid transaction — either a standalone credit/debit card receipt, OR an invoice that also contains a payment-receipt section indicating card payment (see CREDIT_CARD_RECEIPT_CASE_RELATED for the full list of card-payment indicators, including "Payment Method: Virtual Terminal", "Stripe", "Square", masked card numbers, etc.)? If YES → one of the CREDIT_CARD_RECEIPT_* categories.
-4. Otherwise it is an invoice/bill — one of the COST_INVOICE_CASE_RELATED or GENERAL_INVOICE_NOT_CASE_RELATED categories
-5. Apply the case-relevance test from the Rules section to pick the case-related vs. not-case-related variant
+2. Is the Document text a tax form, IRS form, or other government form (W-9, W-4, W-2, 1099, etc. — see the NON_COST tax-form markers above)? If YES → `NON_COST`, regardless of any payment-, withholding-, or amount-related vocabulary on the form. Do NOT proceed to subsequent steps. A W-9 in particular discusses backup withholding, payments, and tax classification — none of that makes it an invoice or receipt.
+3. Is the Document text actually an invoice, bill, or receipt (per the test above)? If NO → `NON_COST`. Police/crash reports, medical records, court filings, contracts, letters, and notices are NOT invoices or receipts even when they mention money.
+4. Does the Document text show a card-paid transaction — either a standalone credit/debit card receipt, OR an invoice that also contains a payment-receipt section indicating card payment (see CREDIT_CARD_RECEIPT_CASE_RELATED for the full list of card-payment indicators, including "Payment Method: Virtual Terminal", "Stripe", "Square", masked card numbers, etc.)? If YES → one of the CREDIT_CARD_RECEIPT_* categories.
+5. Otherwise it is an invoice/bill — one of the COST_INVOICE_CASE_RELATED or GENERAL_INVOICE_NOT_CASE_RELATED categories
+6. Apply the case-relevance test from the Rules section to pick the case-related vs. not-case-related variant
 
 ## Rules
 
