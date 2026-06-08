@@ -159,11 +159,26 @@ Describe accident clearly and chronologically
 Use only verified facts from records
 If the at-fault driver was unidentified or fled the scene, describe them accordingly (e.g., "the unidentified motorist," "the hit-and-run driver") and note the fleeing where documented
 
+**CRITICAL — Omit irrelevant identifying and administrative detail.** The Facts section should tell the story of the collision and its immediate consequences — not recite vehicle paperwork or post-accident claim administration. Do NOT include:
+- **Vehicle identifiers** — VINs, license plate numbers, or vehicle year/make/model/trim. Do NOT write "2025 Toyota Tundra CrewMax SR (VIN: 5TFLA5DB5SX321528; California plate EF19E88) operated by..." — instead write "the at-fault driver's vehicle" (or, if disambiguation is genuinely needed in a multi-vehicle event, "the at-fault driver's Toyota"). Exception: when the at-fault driver fled and the only identifying anchor is a partial plate or vehicle description captured by a witness or surveillance, that anchor may appear in plain terms because it bears on identification — but standard plate / VIN recitation for an identified driver does not.
+- **Driver biographical detail** — date of birth, driver's license number, age. Exception: when the driver's status is itself part of the liability theory (e.g., a provisional licensee), state the status in plain terms without the DL number.
+- **Property damage minutiae** — repair cost figures, appraiser names, the date an appraisal was confirmed, post-collision drivability of vehicles. These do not move liability or damages.
+- **Post-accident administrative filings** — SR-1 / SR-22 filing dates with the DMV, claim opening dates, internal carrier processing milestones.
+
+For identifiers that legitimately appear in the letter (police report numbers, badge numbers, claim numbers in the Re: block), copy the value character-by-character from the source — do NOT paraphrase, normalize spacing, or "correct" what looks like a typo.
+
 ---
 
 ### Liability
 
 State plainly and assertively why the at-fault driver is at fault. This section should be **short and direct** — not a legal analysis or essay on negligence theory. Do NOT discuss duty of care, causation frameworks, or legal reasoning. Simply state what the at-fault driver did wrong and why they are liable.
+
+**CRITICAL — Liability is about conduct, not claim administration.** Do NOT pad this section with administrative claim detail that has no bearing on fault. Specifically, do NOT include:
+- Insurance policy numbers or coverage periods (e.g., do NOT write "confirming coverage under policy number CAAP0000675370 for the period November 5, 2025 through May 5, 2026")
+- Appraiser names, appraisal dates, or appraisal findings used as liability proof (the appraisal confirms damage extent, not fault)
+- Multi-sentence recitations of carrier claim-processing milestones
+
+Keep the focus on what the at-fault driver did wrong and the evidence that supports it.
 
 - Open with a bold/underlined/italic statement establishing that liability is clear
 - State the at-fault driver's specific negligent conduct (e.g., ran a red light, failed to yield, made an unsafe lane change, fled the scene)
@@ -186,6 +201,15 @@ Write this section as a **flowing legal narrative** written by an attorney, NOT 
 - NO: "exhibited visual hallucinations (reporting 'ants crawling on his body') secondary to phenytoin toxicity, with a serum phenytoin level of 24 mcg/mL (therapeutic range: 10–20 mcg/mL)"
 
 Include specific pain ratings, blood pressure readings, and injury measurements (e.g., "7 cm hematoma") — these are persuasive. But omit lab panels, drug levels with ranges, ejection fractions, and other deep clinical minutiae that an adjuster will not find meaningful.
+
+**CRITICAL — Do NOT include billing detail in the treatment narrative.** Charges, payments, and balances belong in the Past Medical Expenses table (section 4.1), NOT in the visit-by-visit narrative. In the narrative, do NOT include:
+- Total bill or charge amounts (e.g., "totaling $746.00")
+- Insurance payments, allowed amounts, or carrier adjustments (e.g., "Insurance paid $412.17")
+- Self-pay balances, write-offs, or remaining patient responsibility (e.g., "the remaining balance of $221.93 transferred to self-pay")
+- Parenthetical exhibit references tied to a bill (e.g., "(Exhibit 5)") — exhibit references for bills live in the Past Medical Expenses table
+- CPT codes (e.g., "CPT 99285") — CPT codes describe billing, not clinical care; describe the service itself in plain attorney prose (e.g., "emergency physician evaluation," not "CPT 99285")
+
+The narrative's job is to describe the care delivered — the provider, the evaluation, the findings, the treatment, and the patient's response. Charges are summarized once, downstream, in the Past Medical Expenses table.
 
 **CRITICAL — Do NOT fabricate or over-infer:** Only include facts explicitly documented in the records. Do NOT:
 - Infer reasons for missed appointments (e.g., do not write "cancelled due to transportation barriers" unless the records explicitly state this)

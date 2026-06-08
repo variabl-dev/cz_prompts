@@ -158,15 +158,28 @@ This is NOT a numbered section — it appears between the salutation and Section
 Describe accident clearly and chronologically
 Use only verified facts from records
 Include the most specific location detail available in the records — street name, business name, and municipality when documented (e.g., "the Target store on La Paz Road in Aliso Viejo, Orange County, California"). Do NOT default to county-level location when more specific detail is in the records.
-Capture corroborating evidentiary anchors when documented: police report number, license plate, surveillance footage and the entity that retrieved it, witness names, and passenger identities. These details strengthen the factual record without changing tone.
+Capture corroborating evidentiary anchors when documented: police report number, surveillance footage and the entity that retrieved it, witness names, and passenger identities. These details strengthen the factual record without changing tone.
 
-**CRITICAL — Character-exact transcription of identifiers.** License plate numbers, VINs, claim numbers, policy numbers, badge numbers, police report numbers, and similar alphanumeric identifiers MUST be copied character-by-character from the source. Do NOT paraphrase, abbreviate, normalize spacing, "correct" what looks like a typo, or add characters that look right. If the police report says `BBE933`, output `BBE933` — not `BBSE933`, not `BBE 933`, not `BBE-933`. If you cannot read a character with certainty, transcribe what is present rather than guessing. Identifier fidelity is a litigation-risk issue: a wrong plate number in a demand letter can be challenged.
+**CRITICAL — Omit irrelevant identifying and administrative detail.** The Facts section should tell the story of the collision and its immediate consequences — not recite vehicle paperwork or post-accident claim administration. Do NOT include:
+- **Vehicle identifiers** — VINs, license plate numbers, or vehicle year/make/model/trim. Do NOT write "2025 Toyota Tundra CrewMax SR (VIN: 5TFLA5DB5SX321528; California plate EF19E88) operated by..." — instead write "the at-fault driver's vehicle" (or, if disambiguation is genuinely needed in a multi-vehicle event, "the at-fault driver's Toyota").
+- **Driver biographical detail** — date of birth, driver's license number, age. Exception: when the driver's status is itself part of the liability theory (e.g., a provisional licensee), state the status in plain terms without the DL number.
+- **Property damage minutiae** — repair cost figures, appraiser names, the date an appraisal was confirmed, post-collision drivability of vehicles. These do not move liability or damages.
+- **Post-accident administrative filings** — SR-1 / SR-22 filing dates with the DMV, claim opening dates, internal carrier processing milestones.
+
+**CRITICAL — Character-exact transcription of identifiers that DO appear.** For identifiers that legitimately appear in the letter (police report numbers, badge numbers, the carrier claim number in the Re: block), the value MUST be copied character-by-character from the source. Do NOT paraphrase, abbreviate, normalize spacing, "correct" what looks like a typo, or add characters that look right. If the police report says `BBE933`, output `BBE933` — not `BBSE933`, not `BBE 933`, not `BBE-933`. If you cannot read a character with certainty, transcribe what is present rather than guessing. Identifier fidelity is a litigation-risk issue.
 
 ---
 
 ### Liability
 
 State plainly why the defendant is at fault. This section should be **short, direct, and measured** — not a legal analysis, not an essay on negligence theory, and not a complaint preview. Do NOT discuss duty of care, causation frameworks, or legal reasoning. Simply state what the defendant did wrong, surface the supporting evidence, and identify the parties.
+
+**CRITICAL — Liability is about conduct, not claim administration.** Do NOT pad this section with administrative claim detail that has no bearing on fault. Specifically, do NOT include:
+- Insurance policy numbers or coverage periods (e.g., do NOT write "confirming coverage under policy number CAAP0000675370 for the period November 5, 2025 through May 5, 2026")
+- Appraiser names, appraisal dates, or appraisal findings used as liability proof (the appraisal confirms damage extent, not fault)
+- Multi-sentence recitations of what the carrier has already processed administratively
+
+A single short acknowledgement that the carrier has accepted the claim or has not disputed liability is acceptable when documented; do NOT expand that acknowledgement into a paragraph of policy-paperwork detail.
 
 **CRITICAL — Minimalist theory selection.** Liability theory is judgment-laden work that the reviewing attorney must own. The drafting model's job is to surface the documented facts and the statutes those facts support — NOT to choose advanced doctrinal theories. The model MUST NOT:
 
@@ -207,6 +220,15 @@ Write this section as a **flowing legal narrative** written by an attorney, NOT 
 - NO: "exhibited visual hallucinations (reporting 'ants crawling on his body') secondary to phenytoin toxicity, with a serum phenytoin level of 24 mcg/mL (therapeutic range: 10–20 mcg/mL)"
 
 Include specific pain ratings, blood pressure readings, and injury measurements (e.g., "7 cm hematoma") — these are persuasive. But omit lab panels, drug levels with ranges, ejection fractions, and other deep clinical minutiae that an adjuster will not find meaningful.
+
+**CRITICAL — Do NOT include billing detail in the treatment narrative.** Charges, payments, and balances belong in the Past Medical Expenses table (section 4.1), NOT in the visit-by-visit narrative. In the narrative, do NOT include:
+- Total bill or charge amounts (e.g., "totaling $746.00")
+- Insurance payments, allowed amounts, or carrier adjustments (e.g., "Insurance paid $412.17")
+- Self-pay balances, write-offs, or remaining patient responsibility (e.g., "the remaining balance of $221.93 transferred to self-pay")
+- Parenthetical exhibit references tied to a bill (e.g., "(Exhibit 5)") — exhibit references for bills live in the Past Medical Expenses table
+- CPT codes (e.g., "CPT 99285") — CPT codes describe billing, not clinical care; describe the service itself in plain attorney prose (e.g., "emergency physician evaluation," not "CPT 99285")
+
+The narrative's job is to describe the care delivered — the provider, the evaluation, the findings, the treatment, and the patient's response. Charges are summarized once, downstream, in the Past Medical Expenses table.
 
 **CRITICAL — Do NOT duplicate the Objective Tests subsection inline.** Detailed MRI / CT / X-ray findings belong in section 3.2 (Objective Tests). In the visit-by-visit narrative, refer to imaging at a high level (e.g., "ordered MRI studies of the lumbar spine, cervical spine, and left ankle to evaluate for occult fracture and nerve involvement," or "Dr. Khan reviewed the imaging and noted multilevel disc protrusions with severe stenosis at L4-L5"). Do NOT re-list every disc level, every Schmorl's node, every Modic change, or every millimeter measurement in the narrative paragraphs — that material is reserved for the Objective Tests bullet list. The narrative's job is to show the story of care, not to restate radiology reports.
 
