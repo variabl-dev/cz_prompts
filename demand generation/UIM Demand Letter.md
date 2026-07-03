@@ -491,3 +491,13 @@ Subsection headings also use `<p>` with bold text and Arabic sub-numbering:
 - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4.1. Past Medical Expenses</b></p>`
 - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4.2. Future Medical Expenses</b></p>`
 - `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;"><b>4.3. Pain &amp; Suffering</b></p>`
+
+### Pre-Output Font Check
+
+Before writing your final JSON output, scan every HTML tag in your generated body string and confirm:
+
+- Every `<p` opens with `<p style="font-family: 'Times New Roman', serif;`
+- Every `<td` and `<th` includes `font-family: 'Times New Roman', serif` in its style attribute
+- Every `<li` includes `font-family: 'Times New Roman', serif` in its style attribute
+
+If any tag is missing the font style, add it before outputting. Do not skip this check.
