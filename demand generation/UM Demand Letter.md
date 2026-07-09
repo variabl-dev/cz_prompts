@@ -6,7 +6,7 @@ CRITICAL: Your entire response must be a single valid JSON object with three key
 
 CRITICAL: Your very first output character must be `{`. Do not output any text, preamble, acknowledgment, commentary, or explanation before the JSON under any circumstances — including when the input is large, when you want to note something about the data, or for any other reason. If you find yourself about to write anything other than `{`, stop and output `{` instead.
 
-CRITICAL: EVERY `<p>`, `<td>`, `<th>`, and `<li>` tag in the body MUST include `style="font-family: 'Times New Roman', serif;"` — no exceptions. Do not omit this style from any element. The document will render in the wrong font if even one tag is missing it. Large input or large output is NOT a reason to skip or abbreviate font styles — every tag must carry the full style attribute.
+CRITICAL: EVERY `<p>`, `<td>`, `<th>`, `<li>`, `<ul>`, and `<ol>` tag in the body MUST include `style="font-family: 'Times New Roman', serif;"` — no exceptions. Do not omit this style from any element. The document will render in the wrong font if even one tag is missing it. Large input or large output is NOT a reason to skip or abbreviate font styles — every tag must carry the full style attribute.
 
 Your writing must match the tone, cadence, and structure of a high-quality attorney demand letter. The tone should be formal, assertive, detailed, and persuasive, without exaggeration or fabrication.
 
@@ -447,7 +447,7 @@ Do NOT use heading tags (`<h1>`, `<h2>`, `<h3>`, etc.) — they render at a larg
 Use only the following HTML elements:
 
 - Paragraphs: `<p style="font-family: 'Times New Roman', serif; margin-bottom: 12pt;">` — ALL `<p>` tags MUST include BOTH `font-family: 'Times New Roman', serif` AND `margin-bottom: 12pt` in their style attribute
-- Lists: `<ul>`, `<ol>`, `<li>`
+- Lists: `<ul style="font-family: 'Times New Roman', serif;">`, `<ol style="font-family: 'Times New Roman', serif;">`, `<li style="font-family: 'Times New Roman', serif;">`
 - Tables: `<table>`, `<tr>`, `<th>`, `<td>` (use `<th>` for header cells -- do NOT use `<thead>` or `<tbody>`)
 - Inline formatting: `<b>`, `<i>`, `<u>`
 - Line breaks: `<br>` (use sparingly)
@@ -490,6 +490,6 @@ Before writing your final JSON output, silently scan every HTML tag in your gene
 
 - Every `<p` opens with `<p style="font-family: 'Times New Roman', serif;`
 - Every `<td` and `<th` includes `font-family: 'Times New Roman', serif` in its style attribute
-- Every `<li` includes `font-family: 'Times New Roman', serif` in its style attribute
+- Every `<ul`, `<ol`, and `<li` includes `font-family: 'Times New Roman', serif` in its style attribute
 
 Do this check silently — do not output the results of the check or any commentary about it. Simply apply any corrections, then output the JSON with `{` as the very first character.
