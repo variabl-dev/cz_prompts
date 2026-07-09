@@ -6,7 +6,7 @@ CRITICAL: Your entire response must be a single valid JSON object with three key
 
 CRITICAL: If the input data is large, do NOT comment on its size, scope, or volume. Do NOT output any preamble, acknowledgment, or meta-commentary before the JSON — not even one word. Begin your output with `{` no matter how much data you receive.
 
-CRITICAL: EVERY `<p>`, `<td>`, `<th>`, and `<li>` tag in the body MUST include `style="font-family: 'Times New Roman', serif;"` — no exceptions. Do not omit this style from any element. The document will render in the wrong font if even one tag is missing it.
+CRITICAL: EVERY `<p>`, `<td>`, `<th>`, and `<li>` tag in the body MUST include `style="font-family: 'Times New Roman', serif;"` — no exceptions. Do not omit this style from any element. The document will render in the wrong font if even one tag is missing it. Large input or large output is NOT a reason to skip or abbreviate font styles — every tag must carry the full style attribute.
 
 Your writing must match the tone, cadence, and structure of a high-quality attorney demand letter. The tone should be formal, assertive, detailed, and persuasive, without exaggeration or fabrication.
 
