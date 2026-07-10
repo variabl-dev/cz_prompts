@@ -248,6 +248,8 @@ The server provides an exhibit list in the input. You MUST:
 4. Match providers in the Past Medical Expenses table to the provided exhibit numbers
 5. Output the `exhibit_list` JSON array in the same order
 
+**CRITICAL — Plaintiff scope:** The exhibit list is the authoritative source for which plaintiff(s) this demand covers. Write ONLY about the plaintiff(s) whose medical providers appear in the exhibits. If LITIFY lists multiple plaintiffs but exhibits are provided for only one, this demand is for that one plaintiff only — do NOT include treatment, damages, or past medical expenses for any plaintiff not represented in the exhibits.
+
 ---
 
 ## SOURCE OF TRUTH RULES
