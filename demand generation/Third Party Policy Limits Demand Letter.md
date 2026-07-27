@@ -81,8 +81,8 @@ Generate a complete Third Party Demand Letter using ONLY the provided data. Do N
 
 Scan the full input for these values and output them in the JSON:
 - **`date`**: Today's date (provided in the input)
-- **`sent_via`**: Default to email. Scan all input (LITIFY adjuster data, CORR headers, prior emails) for the adjuster's email address. Email beats fax — if any email exists anywhere in the input, use it. If found, output `"Email: adjuster@example.com"`. If no email but a fax number exists, output `"Facsimile: 310-555-1234"`. If neither, output `"U.S. Mail"`. Do NOT invent an email address.
-- **`adjuster_name`**, **`adjuster_company`**, **`adjuster_address`**: Adjuster's full name, company, and mailing address (use `\n` for line breaks within the address)
+- **`sent_via`**: This demand is transmitted by **email and/or fax — NEVER by U.S. Mail**. Scan all input (LITIFY adjuster data, CORR headers, prior emails) for the ASSIGNED adjuster's email address and fax number. If BOTH are found, output `"Email/Fax: adjuster@example.com/310-555-1234"`. If only an email is found, output `"Email: adjuster@example.com"`. If only a fax is found, output `"Fax: 310-555-1234"`. If NEITHER is found anywhere in the input, output `"Email/Fax"` with no contact — never `"U.S. Mail"`. Do NOT invent an email address or fax number.
+- **`adjuster_name`**, **`adjuster_company`**, **`adjuster_address`**: The full name, company, and address of the adjuster ASSIGNED TO THIS CLAIM (match by claim number / the at-fault party's insurer — do not use an adjuster from an unrelated policy). Use `\n` for line breaks within the address.
 - **`our_client`**: Client's full name
 - **`your_insured`**: At-fault party's full name
 - **`claim_no`**: The carrier's claim number
@@ -287,7 +287,7 @@ CRITICAL JSON rules:
 | Key | Type | Description |
 |-----|------|-------------|
 | `date` | string | Full letter date (e.g., "July 9, 2026") |
-| `sent_via` | string | e.g., `"Email: adj@ins.com"` or `"Facsimile: 310-555-1234"` or `"U.S. Mail"` |
+| `sent_via` | string | e.g., `"Email/Fax: adj@ins.com/310-555-1234"`, `"Email: adj@ins.com"`, or `"Fax: 310-555-1234"` — NEVER `"U.S. Mail"` |
 | `adjuster_name` | string | Adjuster's full name |
 | `adjuster_company` | string | Insurance company name |
 | `adjuster_address` | string | Mailing address, lines separated by `\n` |

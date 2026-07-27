@@ -86,7 +86,7 @@ Generate a complete UM Demand Letter using ONLY the provided data. Do NOT fabric
 
 Scan the full input for these values and output them in the JSON:
 - **`date`**: Today's date (provided in the input)
-- **`sent_via`**: Default to email. Scan all input (LITIFY adjuster data, CORR headers, prior emails) for the adjuster's email address. If found, output `"Email: adjuster@example.com"`. If no email but a fax number exists, output `"Facsimile: 310-555-1234"`. If neither, output `"U.S. Mail"`.
+- **`sent_via`**: This demand is transmitted by **email and/or fax — NEVER by U.S. Mail**. Scan all input (LITIFY adjuster data, CORR headers, prior emails) for the ASSIGNED adjuster's email address and fax number. If BOTH are found, output `"Email/Fax: adjuster@example.com/310-555-1234"`. If only an email is found, output `"Email: adjuster@example.com"`. If only a fax is found, output `"Fax: 310-555-1234"`. If NEITHER is found anywhere in the input, output `"Email/Fax"` with no contact — never `"U.S. Mail"`. Do NOT invent an email address or fax number.
 - **`adjuster_name`**, **`adjuster_company`**, **`adjuster_address`**: Adjuster's full name, company, and mailing address (use `\n` for line breaks within the address)
 - **`our_client`**: Client's full name
 - **`your_insured`**: For UM, same as our_client (client is the insured under their own policy)
@@ -244,7 +244,7 @@ CRITICAL JSON rules:
 | Key | Type | Description |
 |-----|------|-------------|
 | `date` | string | Full letter date (e.g., "July 9, 2026") |
-| `sent_via` | string | e.g., `"Email: adj@ins.com"` or `"Facsimile: 310-555-1234"` or `"U.S. Mail"` |
+| `sent_via` | string | e.g., `"Email/Fax: adj@ins.com/310-555-1234"`, `"Email: adj@ins.com"`, or `"Fax: 310-555-1234"` — NEVER `"U.S. Mail"` |
 | `adjuster_name` | string | Adjuster's full name |
 | `adjuster_company` | string | Insurance company name |
 | `adjuster_address` | string | Mailing address, lines separated by `\n` |
