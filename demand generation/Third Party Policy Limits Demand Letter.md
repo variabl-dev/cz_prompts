@@ -79,7 +79,14 @@ Follow the tone and sentence structure. Generate entirely new content based only
 
 ## INPUTS
 
-1. Structured case data from LITIFY
+1. Structured case data from LITIFY, in the `litify data` input. It carries a **`litify_context`** object of attorney-maintained case data:
+   - `plaintiffs`, `defendants`, `witnesses` — party names by role.
+   - `facts_of_the_case`, `liability`, `major_injuries`, `injuries`, `description` — the firm's synopsis of the incident, fault, and harm.
+   - `case_type`, `case_number`, `case_phase`, `case_status`, `case_simple_status`, `display_name`.
+   - `medical_treatments[]` — `{medical_provider_name, plaintiff_name, amount, service_start_date, service_end_date, treatment_status, final_bills_records_in}`.
+   - `insurace_policies[]` — `{policy_type, policy_holder, insurance_company, compressed_coverage_limits}`.
+   - `settlements[]` — `{amount, settle_date, type_of_settlement, plaintiff_name, defendant_name, …}`.
+   Treat `litify_context` as the firm's **authoritative** source for parties, claim type, and the liability theory / fact synopsis — a strong starting point for the Facts and Liability sections. For medical specials, ICD codes, and exact billing, the underlying records still win (see SOURCE OF TRUTH RULES). Never map `litify_context.case_number` to `claim_no` — `case_number` is the firm's internal matter number, not the carrier's claim number.
 2. Summarized and/or raw OCR content from: CORR, MEDREC, MEDSUMM, EVID, PROP
 3. Medical records and supporting documents (used to derive exhibits)
 
@@ -304,7 +311,7 @@ The server provides an exhibit list in the input. You MUST:
 4. Match providers in the Past Medical Expenses table to the provided exhibit numbers
 5. Output the `exhibit_list` JSON array in the same order
 
-**CRITICAL — Plaintiff scope:** The exhibit list is the authoritative source for which plaintiff(s) this demand covers. Write ONLY about the plaintiff(s) whose medical providers appear in the exhibits. If LITIFY lists multiple plaintiffs but exhibits are provided for only one, this demand is for that one plaintiff only — do NOT include treatment, damages, or past medical expenses for any plaintiff not represented in the exhibits.
+**CRITICAL — Plaintiff scope:** The exhibit list is the authoritative source for which plaintiff(s) this demand covers. Write ONLY about the plaintiff(s) whose medical providers appear in the exhibits. If LITIFY lists multiple plaintiffs (e.g. `litify_context.plaintiffs`) but exhibits are provided for only one, this demand is for that one plaintiff only — `litify_context.plaintiffs` informs `our_client` and party names but does NOT override exhibit-based scope. Do NOT include treatment, damages, or past medical expenses for any plaintiff not represented in the exhibits.
 
 ---
 
@@ -312,8 +319,8 @@ The server provides an exhibit list in the input. You MUST:
 
 - MEDREC and MEDSUMM: medical facts
 - CORR and EVID: liability and supporting details
-- LITIFY: structured case data
-- Conflicting data: prefer medical records over summaries; prefer official reports over narrative descriptions
+- LITIFY: structured case data. Its `litify_context` object (parties, `facts_of_the_case`, `liability`, `major_injuries`/`injuries`, `medical_treatments`, `insurace_policies`, `settlements`) is attorney-maintained and authoritative for parties, claim type, and the liability theory. Seed Facts from `facts_of_the_case`/`description`, Liability from `liability`, and Injuries from `major_injuries`/`injuries`; cross-check the Past Medical Expenses table's providers and amounts against `medical_treatments[]`; identify `your_insured` (the at-fault party) and the carrier from `defendants` + `insurace_policies` (`policy_holder` / `insurance_company`). Use `compressed_coverage_limits` only for internal reasoning — never state a policy-limits dollar amount in the letter.
+- Conflicting data: prefer medical records over summaries; prefer official reports over narrative descriptions; for medical specials, ICD codes, and exact billing the records win over `litify_context`
 
 ---
 

@@ -48,7 +48,14 @@ Follow the tone and sentence structure of the STYLE REFERENCE. Generate entirely
 
 ## INPUTS
 
-1. Structured case data from LITIFY
+1. Structured case data from LITIFY, in the `litify data` input. It carries a **`litify_context`** object of attorney-maintained case data:
+   - `plaintiffs`, `defendants`, `witnesses` — party names by role.
+   - `facts_of_the_case`, `liability`, `major_injuries`, `injuries`, `description` — the firm's synopsis of the incident, fault, and harm.
+   - `case_type`, `case_number`, `case_phase`, `case_status`, `case_simple_status`, `display_name`.
+   - `medical_treatments[]` — `{medical_provider_name, plaintiff_name, amount, service_start_date, service_end_date, treatment_status, final_bills_records_in}`.
+   - `insurace_policies[]` — `{policy_type, policy_holder, insurance_company, compressed_coverage_limits}` (includes the client's own UIM carrier and, where recorded, the at-fault driver's bodily-injury carrier).
+   - `settlements[]` — `{amount, settle_date, type_of_settlement, plaintiff_name, defendant_name, …}` — the prior third-party settlement(s) that precede this UIM demand.
+   Treat `litify_context` as the firm's **authoritative** source for parties, claim type, and the liability theory / fact synopsis — a strong starting point for the Facts and Liability sections. For medical specials, ICD codes, and exact billing, the underlying records still win (see SOURCE OF TRUTH RULES). Never map `litify_context.case_number` to `claim_no` — `case_number` is the firm's internal matter number, not the carrier's claim number.
 2. Summarized and/or raw OCR content from: CORR, MEDREC, MEDSUMM, EVID, PROP, **DISB** (prior third-party settlement details)
 3. Medical records and supporting documents (used to derive exhibits)
 
@@ -104,7 +111,7 @@ Two distinct paragraphs:
 
 **Paragraph 1 — Purpose and confidentiality.** State this is a formal request to settle for the client's available underinsured motorist policy limit. Include settlement-inadmissibility language (Evidence Code § 1152 for California; Federal Rule of Evidence 408 for D.C.).
 
-**Paragraph 2 — Prior third-party settlement context (REQUIRED).** State this letter follows the tendering of the at-fault driver's bodily injury policy limits, and include: the dollar amount, the prior carrier name, the prior claim number, and a note that documentation is enclosed. Source: **DISB folder**. If specific elements are missing, omit only those elements — do NOT fabricate.
+**Paragraph 2 — Prior third-party settlement context (REQUIRED).** State this letter follows the tendering of the at-fault driver's bodily injury policy limits, and include: the dollar amount, the prior carrier name, the prior claim number, and a note that documentation is enclosed. Sources: the **DISB folder** and `litify_context.settlements[]` (prior settlement `amount`, `settle_date`, `type_of_settlement`) + `litify_context.insurace_policies[]` (the at-fault driver's bodily-injury `insurance_company`). If specific elements are missing, omit only those elements — do NOT fabricate.
 
 ---
 
@@ -216,9 +223,9 @@ The server provides an exhibit list in the input. You MUST:
 
 - MEDREC and MEDSUMM: medical facts
 - CORR and EVID: liability and supporting details
-- **DISB**: prior third-party settlement context (required for UIM introduction)
-- LITIFY: structured case data
-- Conflicting data: prefer medical records over summaries; prefer official reports over narrative descriptions
+- **DISB**: prior third-party settlement context (required for UIM introduction); `litify_context.settlements[]` + `insurace_policies[]` are an additional structured source for the prior settlement amount and carrier
+- LITIFY: structured case data. Its `litify_context` object (parties, `facts_of_the_case`, `liability`, `major_injuries`/`injuries`, `medical_treatments`, `insurace_policies`, `settlements`) is attorney-maintained and authoritative for parties, claim type, and the liability theory. Seed Facts from `facts_of_the_case`/`description`, Liability from `liability`, and Injuries from `major_injuries`/`injuries`; cross-check the Past Medical Expenses table's providers and amounts against `medical_treatments[]`. Use `compressed_coverage_limits` only for internal reasoning — never state the UIM policy-limit dollar amount in the letter.
+- Conflicting data: prefer medical records over summaries; prefer official reports over narrative descriptions; for medical specials, ICD codes, and exact billing the records win over `litify_context`
 
 ---
 
