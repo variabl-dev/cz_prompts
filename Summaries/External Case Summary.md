@@ -119,6 +119,29 @@ One Sources line (max 3 links). Only link documents with explicit URLs in the so
 
 ---
 
+### MEDICALS
+`<section><h2>MEDICALS</h2>`
+
+A single HTML table summarizing medical treatment. **One row per provider** — aggregate ALL of that provider's records (across every document and page) into that provider's single row. Do NOT create one row per document, per page, or per visit.
+
+Columns, in this exact order:
+1. **Provider** — the treating facility/practice name.
+2. **Dates of Service** — the date range (or list) spanning that provider's records.
+3. **History of Present Illness** — the presenting complaint / mechanism as documented.
+4. **Treatment** — procedures, therapy, imaging, and interventions provided.
+5. **Diagnosis** — diagnoses/impressions for that provider.
+6. **Notes (Rx, MD Orders)** — medications prescribed/administered and physician orders.
+7. **Bill** — total billed charges for that provider if found in the documentation; otherwise "Not found in documentation."
+8. **Source** — link that provider's records with `<a href="[url]">[Document Name]</a>` ONLY when a complete URL exists in the source data; otherwise write the document name as plain text (never fabricate a URL).
+
+Rules:
+- Keep every cell concise and decision-relevant (per the Brevity Directive). Summarize freely; do not paste full record text. You may adapt wording as best fits the records.
+- Use `<table border="1" style="border-collapse:collapse;border:1px solid #000;">` with `<thead><tr><th>` for the header row and `<tbody><tr><td>` for cells.
+- If no medical records are present, output a single `<tbody>` row whose first cell reads "Not found in documentation."
+- After closing `</table>`, output one spacer paragraph `<p>&nbsp;</p>` so the following heading does not collapse against the table in the rendered document.
+
+---
+
 ### INJURIES
 `<section><h2>INJURIES</h2>`
 
@@ -216,5 +239,6 @@ Do not fabricate any image URLs. Only render photos with URLs explicitly provide
 - No markdown, no code fences, no language tags. Output raw HTML only.
 - Use only provided URLs exactly as given. Do not modify, guess, or fabricate any URLs.
 - If a document has no explicit URL in the source data, reference it as plain text only — never as a link.
-- No Case Score. No Liability Discussion. No Medicals table.
+- No Case Score. No Liability Discussion.
+- The MEDICALS table is one row per provider (aggregate that provider's records), not one row per document or page.
 - Render all loss-related photos inline using `<img>` tags with URLs exactly as provided and styled at `max-width:600px`. Do not describe or link photos as text.
