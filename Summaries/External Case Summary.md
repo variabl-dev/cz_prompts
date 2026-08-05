@@ -22,11 +22,24 @@ IMPORTANT: **All output must be valid HTML.** Wrap the entire report in `<html>`
 - Use `<p>` for paragraphs.
 - Use `<ul><li>` for lists and bullet points.
 - Use `<table>`, `<thead>`, `<tbody>`, `<tr>`, `<th>`, `<td>` for tabular data (no ASCII or markdown tables).
-- All document references must use `<a href="[url]">Document Title</a>`. Do not fabricate URLs. Use the document title provided.
-- All loss-related photos must be rendered inline using `<img src="[url_as_provided]" alt="[description]" style="max-width:600px;width:100%;margin:8px 0;">`. Use the image URL exactly as provided in the source data. Do not modify, convert, or fabricate any URLs.
+- All document references must use `<a href="[url]">Document Title</a>`, where `[url]` is that document's own `url` field (see **Input Data Format** below). Do not fabricate URLs. Use the document title provided.
+- All loss-related photos must be rendered inline using `<img src="[url]" alt="[description]" style="max-width:600px;width:100%;margin:8px 0;">`, where `[url]` is the image document's own `url` field, copied verbatim. Do not modify, convert, or fabricate any URLs, and never substitute a Google Drive / Docrio / Dropbox link.
 - Do not output plain text, markdown, or ASCII formatting anywhere.
 - Every element must conform to valid HTML syntax.
 - All tables must include `border="1"` and `style="border-collapse:collapse;border:1px solid #000;"`.
+
+**Input Data Format**
+The case documents are supplied as a JSON array. Each element is an object with these fields:
+- `title` — the document's name.
+- `type` — its MIME type (e.g. `application/pdf`, `image/jpeg`, `image/png`, `image/heic`).
+- `text` — the extracted / OCR'd text content.
+- `url` — the canonical, ready-to-use link for that document. This is the ONLY link you may use for that document.
+
+URL rules (strict):
+- Use each document's `url` **exactly as given**. Never modify, shorten, guess, fabricate, or replace it with a Google Drive / Docrio / Dropbox link of your own.
+- For every document whose `type` begins with `image/`, the `url` is a pre-hosted, inline-embeddable image link (an S3 link). **Always render it inline with `<img src="{url}" ...>` using that exact `url`.** Do NOT link an image document to Google Drive, do NOT turn it into an `<a href>` text link, and do NOT drop the image. The Drive folder / referral link is never the source for a photo.
+- For non-image document references and source links, use `<a href="{url}">{title}</a>` with that document's own `url`.
+- If a document's `url` is empty or absent, reference it by `title` as plain text only — no link and no `<img>`.
 
 **Brevity Directive**
 Keep the report tight. Paul has indicated previous summaries contained more information than needed. Favor concise, decision-relevant facts over exhaustive elaboration. Do not pad sections to hit a length target. If a field is not supported by the documents, state "Not found in documentation." and move on.
@@ -210,8 +223,8 @@ Only link evidence where a complete URL exists in the source data.
 ### PHOTOS OF THE LOSS
 `<section><h2>PHOTOS OF THE LOSS</h2>`
 
-Render all loss-related photos inline using the URL exactly as provided in the source data. Do not modify, convert, or reconstruct any image URLs:
-`<img src="[url_as_provided]" alt="[brief description]" style="max-width:600px;width:100%;margin:8px 0;">`
+Render all loss-related photos inline using each image document's own `url` field, copied verbatim (see **Input Data Format**). For every document whose `type` begins with `image/`, embed its `url` — do NOT link a photo to Google Drive, the referral folder, or any other location, and do NOT reconstruct the URL:
+`<img src="[url]" alt="[brief description]" style="max-width:600px;width:100%;margin:8px 0;">`
 
 Include:
 - Vehicle photos (any vehicle referenced in or implied by the loss)
@@ -241,4 +254,4 @@ Do not fabricate any image URLs. Only render photos with URLs explicitly provide
 - If a document has no explicit URL in the source data, reference it as plain text only — never as a link.
 - No Case Score. No Liability Discussion.
 - The MEDICALS table is one row per provider (aggregate that provider's records), not one row per document or page.
-- Render all loss-related photos inline using `<img>` tags with URLs exactly as provided and styled at `max-width:600px`. Do not describe or link photos as text.
+- Render all loss-related photos inline using `<img>` tags whose `src` is the image document's own `url` field (an S3 link), copied verbatim, styled at `max-width:600px`. Do not describe or link photos as text, and never point a photo at a Google Drive / referral link.
