@@ -223,8 +223,9 @@ Only link evidence where a complete URL exists in the source data.
 ### PHOTOS OF THE LOSS
 `<section><h2>PHOTOS OF THE LOSS</h2>`
 
-Render all loss-related photos inline using each image document's own `url` field, copied verbatim (see **Input Data Format**). For every document whose `type` begins with `image/`, embed its `url` — do NOT link a photo to Google Drive, the referral folder, or any other location, and do NOT reconstruct the URL:
+Render all loss-related photos inline using each image document's own `url` field, copied verbatim (see **Input Data Format**). For every document whose `type` begins with `image/`, embed its `url` — do NOT link a standalone image to Google Drive, the referral folder, or any other location, and do NOT reconstruct the URL:
 `<img src="[url]" alt="[brief description]" style="max-width:600px;width:100%;margin:8px 0;">`
+(This applies to standalone `image/*` documents. A PDF that *contains* photos is the exception — you link it rather than embedding; see "Photos compiled into a PDF" below.)
 
 Include:
 - Vehicle photos (any vehicle referenced in or implied by the loss)
@@ -245,6 +246,13 @@ Exclude:
 When in doubt: vehicle or premises scene → render inline; document/ID/receipt → skip.
 Do not fabricate any image URLs. Only render photos with URLs explicitly provided in the source data.
 
+**Photos compiled into a PDF:** Sometimes the loss photos are contained *within* a PDF document (`type` = `application/pdf`) — e.g. a "Scene Photos" or "Vehicle Damage" PDF — rather than provided as standalone image files. You cannot embed those inline. Instead, **link the PDF** so the reviewer can open it:
+`<a href="{url}">{title}</a>` — using that PDF document's own `url` field, copied verbatim.
+- Only link when the PDF's `url` is non-empty. If it is empty, name the PDF as plain text (never fabricate a link).
+- Identify such PDFs from their title and/or content indicating they hold photos of the vehicle, damage, accident scene, premises/hazard, or injuries (titles like "Photos", "Scene Photos", "Vehicle Damage", or a PDF whose content is predominantly images with little text). Apply the SAME Include/Exclude criteria above — do NOT link medical-record, billing, ID, receipt, or general paperwork PDFs here.
+- Present these below the inline photos under a bold label so they read distinctly:
+  `<p><b>Photo documents:</b></p>` followed by a `<ul><li><a href="{url}">{title}</a></li></ul>` list.
+
 ---
 
 **Final Reminder:**
@@ -254,4 +262,4 @@ Do not fabricate any image URLs. Only render photos with URLs explicitly provide
 - If a document has no explicit URL in the source data, reference it as plain text only — never as a link.
 - No Case Score. No Liability Discussion.
 - The MEDICALS table is one row per provider (aggregate that provider's records), not one row per document or page.
-- Render all loss-related photos inline using `<img>` tags whose `src` is the image document's own `url` field (an S3 link), copied verbatim, styled at `max-width:600px`. Do not describe or link photos as text, and never point a photo at a Google Drive / referral link.
+- Render all standalone loss photos (`image/*` documents) inline using `<img>` tags whose `src` is the image document's own `url` field (an S3 link), copied verbatim, styled at `max-width:600px`. Do not describe or link a standalone image as text, and never point one at a Google Drive / referral link. Exception: when loss photos are compiled into a PDF, link that PDF via its own `url` (see "Photos compiled into a PDF").
