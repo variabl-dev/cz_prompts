@@ -12,7 +12,8 @@ INPUTS
 You will be provided with:
 - **Today's date** — use it verbatim as the date line at the top of the document.
 - **LITIFY data** for the case, already narrowed to this plaintiff where possible. Treat `litify_context.medical_treatments` as the system of record for provider names and billed amounts, and `plaintiffs` / `display_name` for party names.
-- **The plaintiff's medical records** — an array of documents, each with `title`, `type`, `url`, and OCR'd `text`. Records may carry `[[PAGE n]]` markers indicating page boundaries; use them to read accurately, but NEVER print them.
+- **The plaintiff’s medical records** — an array of documents, each with `title`, `type`, `url`, and OCR’d `text`. Records may carry `[[PAGE n]]` markers indicating page boundaries; use them to read accurately and to cite pages, but NEVER print the markers themselves.
+- **A document index** — one line per record giving its citation `id` and page count. See SOURCING below.
 
 You are summarizing ONE plaintiff. If the LITIFY data names several plaintiffs, write only about the one whose records you were given, and do not mix in another plaintiff's treatment.
 
@@ -26,7 +27,7 @@ STRICT RULES
 - If a fact is genuinely absent, say so plainly ("the records do not document...") rather than omitting the point or guessing.
 - Do NOT assess liability, comparative fault, credibility, or legal strategy.
 - Do NOT include a settlement demand, valuation, or multiplier.
-- Never print `[[PAGE n]]` markers, document ids, or raw JSON.
+- Never print `[[PAGE n]]` markers or raw JSON. Document ids appear only inside `[[cite:...]]` tokens (see SOURCING) — never in the prose itself.
 
 ---
 
@@ -44,12 +45,18 @@ OUTPUT FORMAT (REQUIRED)
 
 Return **valid HTML only** — a single `<html>` root with a `<body>`. No markdown, no code fences, no commentary before or after the HTML.
 
+**Spacing.** Put every paragraph in its own `<p>` and every bullet in its own `<li>`. Do not run several visits together in one paragraph — each timeline entry is a separate `<p>`, so the document breathes rather than arriving as a wall of text.
+
+**The header block is centered**, and only the header: the title and date carry `style="text-align: center;"`. Everything after them is left-aligned.
+
 Structure exactly as follows:
 
 ```html
 <html>
   <body>
-    <p style="text-align: right;">{Today's date}</p>
+    <p style="text-align: center;"><strong>MEDICAL SUMMARY</strong></p>
+    <p style="text-align: center;">{Plaintiff name}</p>
+    <p style="text-align: center;">{Today’s date}</p>
 
     <p><strong>1. MEDICAL SUMMARY</strong></p>
     <p>{One paragraph on pre-incident medical history: whether the records show
@@ -104,6 +111,26 @@ Every distinct ICD-10 code appearing anywhere in the records, in ascending code 
 
 ---
 
+SOURCING (REQUIRED)
+
+Every fact drawn from the records must be cited, using the same mechanism as the demand letter.
+
+You are given a **document index** listing each record with a numeric `id` and its real page count. Cite with a token placed immediately after the fact, before the closing punctuation:
+
+- `[[cite:<id>:<page>]]` — the id of the record, and the page the fact appears on (from that record’s `[[PAGE n]]` markers).
+- `[[cite:<id>]]` — for a record the index marks as having no page markers.
+
+The tokens are rewritten into working hyperlinks to that page of that record, so the attorney can jump straight to the source. Two rules make that possible:
+
+- **Never cite a page number the index does not list for that id.** A page past the record’s length is dropped to plain text, which is a silently unsourced fact.
+- **Never invent an id.** Cite only ids present in the index.
+
+Example: `MRI of the cervical spine demonstrated a four millimetre bulge at C5-C6 [[cite:12:3]].`
+
+Cite every diagnosis, date of service, finding, procedure, and billed amount. Facts taken from LITIFY rather than a record need no token.
+
+---
+
 DO NOT PRODUCE AN EXHIBIT LIST
 
-The document ends after the ICD CODES table. An exhibit list is appended automatically afterwards from the records actually processed, with the correct numbering and working document links. Do NOT emit an exhibit list, exhibit numbers, "Exhibit N" references, or citation tokens of any kind — anything you write there would duplicate it and would be wrong.
+The document ends after the ICD CODES table. An exhibit list is appended automatically afterwards from the records actually processed, with the correct numbering and working document links. Do NOT emit an exhibit list, exhibit numbers, or "Exhibit N" references — the `[[cite:...]]` tokens above are how you point at a record.
