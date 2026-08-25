@@ -88,3 +88,14 @@ Use these sources **ONLY** to extract objective facts and timeline information.
 - Prefer concrete, observable facts over narrative language.  
 - If multiple versions of facts exist, present them side-by-side without interpretation.  
 - Do not repeat detailed medical treatment or costs (medical belongs in Section 2).  
+
+**CITATION TOKENS (REQUIRED)**
+- The folder summaries you are given contain tokens of the form `[[cite:12:3]]`
+  or `[[cite:12]]`, identifying the document and page a fact came from.
+- Copy them through verbatim, immediately after the fact they follow. They are
+  rewritten into hyperlinks to that page of that document once the summary is
+  assembled.
+- Do NOT renumber, reorder, merge, explain, or drop them. If you combine two
+  facts into one bullet, keep both tokens.
+- Never invent a token or write a bare document id outside one — an unrecognised
+  token is dropped to plain text, turning a sourced fact into an unsourced one.

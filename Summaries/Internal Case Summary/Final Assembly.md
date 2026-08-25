@@ -80,3 +80,21 @@ FORMATTING REQUIREMENTS
   `<p><em>No documented information available.</em></p>`
 - Escape any special characters as needed to keep valid HTML.
 - Your response must start with `<html>` and end with `</html>`. Do not output anything before `<html>` or after `</html>`. No JSON wrappers, no trailing braces, no code fences.
+
+---
+
+CITATION TOKENS (REQUIRED)
+
+The section summaries you are given contain tokens of the form `[[cite:12:3]]`
+or `[[cite:12]]`. They identify the document and page a fact came from.
+
+- **Copy them through verbatim**, in place, immediately after the fact they
+  follow. They are rewritten into working hyperlinks after you finish, so the
+  attorney can jump straight to the source document.
+- Do **not** renumber, reorder, merge, "tidy", explain, or drop them, and do not
+  wrap them in HTML — emit the token exactly as it appears, as plain text inside
+  whatever element the fact lives in.
+- If you merge two facts into one bullet, keep both tokens.
+- Never invent a token, and never write a bare document id outside one. A token
+  whose id or page is not real is dropped to plain text, which turns a sourced
+  fact into a silently unsourced one.
