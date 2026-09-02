@@ -49,15 +49,17 @@ The server provides an **exhibit list** in the input. You MUST:
 
 Alongside the exhibit list, the server provides a **document index** — one line per source document: `id <n> — Exhibit <e> — "<filename>" — <k> pages`. The `id` is how you cite that specific document. Inside each document's extracted text, page boundaries are marked `[[PAGE n]]`, where `n` is the real page number; everything from one `[[PAGE n]]` marker until the next is on page `n`.
 
-For a factual assertion drawn from the records — a diagnosis, a measurement, a date of service, an imaging finding, a quoted record — append a citation token identifying the document and page:
+For **every** factual assertion drawn from the records — a diagnosis, a measurement, a date of service, an imaging finding, a quoted record — append a citation token identifying the document and page:
 
 - `[[cite:<id>:<page>]]` — `<id>` from the document index; `<page>` from the nearest preceding `[[PAGE n]]` marker for that fact. Example: `MRI revealed a 7 mm disc herniation at L3-4 [[cite:5:2]].`
 - `[[cite:<id>]]` — omit the page for a document whose index line says "no page markers" (spreadsheet, image, etc.).
 
 Rules for tokens:
-- NEVER invent a page. Use only a `<page>` that actually appears as a `[[PAGE n]]` marker in that document; if unsure, cite without a page: `[[cite:<id>]]`.
-- `[[cite:…]]` tokens and `[[PAGE n]]` markers are literal text, NOT HTML — keep the brackets exactly; never wrap them in tags and never escape them. The server turns each token into a hyperlink whose visible text is the page number and whose target is the source document.
-- Citations are encouraged wherever they add support, but keep the prose readable — do not cite the same point repeatedly.
+- **Write the token and nothing else.** Do NOT write "Exhibit 1", "Ex. 1", or "p. 5" beside it. The server renders every token as `Exhibit 1, p. 5`, hyperlinked to that page of that document — the label is the server's to write, not yours.
+- NEVER invent a page. Use only a `<page>` that actually appears as a `[[PAGE n]]` marker in that document; if unsure, cite without a page: `[[cite:<id>]]`. A page the document does not have is dropped, and the citation falls back to naming the exhibit alone.
+- NEVER invent an `<id>`. Cite only ids that appear in the document index.
+- `[[cite:…]]` tokens and `[[PAGE n]]` markers are literal text, NOT HTML — keep the brackets exactly; never wrap them in tags and never escape them.
+- One token per assertion is enough — cite each point where you make it rather than repeating the same token across a sentence.
 
 ---
 

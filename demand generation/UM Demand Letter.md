@@ -141,7 +141,7 @@ Write as a **flowing legal narrative** — an attorney describing the plaintiff'
 
 **Tone:** Attorney language, not clinical. No lab values with reference ranges, no drug levels with therapeutic ranges, no ejection fractions. Include specific pain ratings, blood pressure readings, and injury measurements — these are persuasive.
 
-**No billing detail in the narrative.** Charges belong in the Past Medical Expenses table. No bill amounts, insurance payments, CPT codes, or exhibit references tied to bills in this section.
+**No billing detail in the narrative.** Charges belong in the Past Medical Expenses table. No bill amounts, insurance payments, or CPT codes in this section. This bars billing detail, not sourcing: every treatment fact here still carries its `[[cite:...]]` token.
 
 **No fabrication:** Only include facts explicitly documented in the records.
 
@@ -210,7 +210,7 @@ Output `attorney_name` and `attorney_initials` in the JSON. The server generates
 The server provides an exhibit list in the input. You MUST:
 1. Use the exhibits exactly as provided — do NOT add, remove, merge, split, or rename them
 2. Preserve the EXACT order — do NOT reorder. Exhibit numbers (1, 2, 3…) are assigned in the order provided.
-3. Cite the source of every fact drawn from the records with a **citation token** — see **Citations** below. Do NOT write a bare "(Exhibit X - p. Y)"; the page must come from a real page marker.
+3. Cite the source of every fact drawn from the records with a **citation token** — see **Citations** below. Write the token alone: the server renders it as "Exhibit 1, p. 5", so never write an exhibit number or a page yourself.
 4. Output the `exhibit_list` JSON array in the same order
 
 ### Citations (per-document, real page numbers)
@@ -225,15 +225,17 @@ Treatment, Pain & Suffering, …) **and** in the ICD Codes / Past Medical Expens
 token identifying the document and page:
 
 - `[[cite:<id>:<page>]]` — `<id>` from the document index; `<page>` from the nearest preceding `[[PAGE n]]` marker
-  for that fact. Example: `The MRI revealed a disc protrusion at L4-L5 (Exhibit 1, [[cite:3:5]]).`
+  for that fact. Example: `The MRI revealed a disc protrusion at L4-L5 [[cite:3:5]].`
 - `[[cite:<id>]]` — omit the page for a document whose index line says "no page markers" (spreadsheet, image, etc.).
 
 Rules for tokens:
+- **Write the token and nothing else.** Do NOT write "Exhibit 1", "Ex. 1", "p. 5", or any other reference beside it.
+  The server renders every token as `Exhibit 1, p. 5`, hyperlinked to that page of that document. The label is the
+  server's to write, which is why every citation in the letter reads the same way — yours would not.
 - NEVER invent a page. Use only a `<page>` that actually appears as a `[[PAGE n]]` marker in that document; if unsure,
-  cite without a page: `[[cite:<id>]]`.
-- Keep writing the human-readable reference ("Exhibit 1", "(Exhibit 1, )") as normal prose and put the token right
-  next to it. The server turns each token into a hyperlink whose visible text is the page number and whose target is
-  the source document.
+  cite without a page: `[[cite:<id>]]`. A page the document does not have is dropped, and the citation falls back to
+  naming the exhibit alone.
+- NEVER invent an `<id>`. Cite only ids that appear in the document index.
 - `[[cite:…]]` tokens and `[[PAGE n]]` markers are literal text, NOT HTML — keep the brackets exactly; never wrap
   them in tags and never escape them. They are allowed despite the "only `<b>/<i>/<u>`" rule.
 
@@ -252,6 +254,8 @@ Rules for tokens:
 
 - Do NOT hallucinate
 - Do NOT create facts not explicitly supported
+- Do NOT leave a fact drawn from the records uncited — every one ends with a `[[cite:<id>:<page>]]` token (see EXHIBIT HANDLING → Citations)
+- Do NOT write "Exhibit 1", "Ex. 1", or "p. 5" yourself — the server renders each token as "Exhibit 1, p. 5"
 - Do NOT include generic filler language
 - Do NOT mention internal systems (LITIFY, folders, OCR) in the letter text
 - Do NOT use markdown syntax (`**bold**`, `*italic*`) — use only `<b>`, `<i>`, `<u>` for inline emphasis within text fields
@@ -285,9 +289,9 @@ CRITICAL JSON rules:
 | `date_of_loss` | string | e.g., "December 3, 2024" |
 | `salutation` | string | e.g., "Dear Ms. Smith:" |
 | `introduction` | string | Introduction paragraph(s), separated by `\n\n` |
-| `facts` | string | Facts paragraphs, separated by `\n\n` |
-| `liability` | string | Liability paragraphs, separated by `\n\n`. Open with `<b><i><u>Liability is clear.</u></i></b>` (adapt the text). |
-| `treatment` | string | Treatment narrative paragraphs, separated by `\n\n` |
+| `facts` | string | Facts paragraphs, separated by `\n\n`. Every assertion drawn from the records ends with a `[[cite:<id>:<page>]]` token. |
+| `liability` | string | Liability paragraphs, separated by `\n\n`. Every assertion drawn from the records ends with a `[[cite:<id>:<page>]]` token. Open with `<b><i><u>Liability is clear.</u></i></b>` (adapt the text). |
+| `treatment` | string | Treatment narrative paragraphs, separated by `\n\n`. Every assertion drawn from the records ends with a `[[cite:<id>:<page>]]` token. |
 | `icd_codes` | array | See below |
 | `objective_tests` | array | See below |
 | `invasive_treatments` | array | See below (empty array `[]` if none) |
@@ -295,7 +299,7 @@ CRITICAL JSON rules:
 | `total_medical_expenses` | string | Sum of all past medical charges, e.g., `"$45,678.00"` (empty string if unavailable) |
 | `future_medical_expenses` | array | Strings, one per recommended treatment. Use `<b>Treatment Name</b>: date, provider, rationale, cost.` |
 | `loss_of_income` | string | Empty string `""` (not applicable for UM) |
-| `pain_and_suffering` | string | Pain & suffering paragraphs, separated by `\n\n` |
+| `pain_and_suffering` | string | Pain & suffering paragraphs, separated by `\n\n`. Every assertion drawn from the records ends with a `[[cite:<id>:<page>]]` token. |
 | `conclusion` | string | Conclusion paragraphs, separated by `\n\n` |
 | `exhibit_list` | array | See below |
 | `attorney_name` | string | Signing attorney's full name |
@@ -303,7 +307,7 @@ CRITICAL JSON rules:
 
 ### `icd_codes` array items:
 ```
-{"code": "M54.5", "description": "Low back pain", "exhibits": "Exhibit 1 [[cite:3:2]]"}
+{"code": "M54.5", "description": "Low back pain", "exhibits": "[[cite:3:2]]"}
 ```
 
 ### `objective_tests` array items:
@@ -318,7 +322,7 @@ CRITICAL JSON rules:
 
 ### `past_medical_expenses` array items:
 ```
-{"provider": "Cedars-Sinai Medical Center", "period": "December 3–7, 2024", "amount": "$24,500.00", "exhibit": "Exhibit 1 [[cite:5:1]]"}
+{"provider": "Cedars-Sinai Medical Center", "period": "December 3–7, 2024", "amount": "$24,500.00", "exhibit": "[[cite:5:1]]"}
 ```
 
 ### `exhibit_list` array items (one per exhibit, in the exact order provided):
