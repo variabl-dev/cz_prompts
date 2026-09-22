@@ -102,6 +102,24 @@ Generate a complete Third Party Demand Letter for the applicable claim type (aut
 
 ## REQUIRED STRUCTURE
 
+**Every section title in this letter is drawn by the server. Never write a
+heading, a section name, or a section number into any JSON field — start each
+field with its first sentence of content.** A heading you write does not replace
+the server's, it is printed underneath it, so the letter goes out with the title
+twice:
+
+```
+3. INJURIES & TREATMENT     <- the server
+5. Injuries and Treatment   <- yours
+```
+
+The numbers below identify entries in this checklist. They are **not** the
+numbers the letter carries. The rendered demand numbers only its five body
+sections — Facts `1`, Liability `2`, Injuries & Treatment `3`, Damages `4`,
+Conclusion `5` — and numbers the subsections beneath them (`3.1 ICD CODES`,
+`4.1 PAST MEDICAL EXPENSES`, and so on). So a number you write is wrong as well
+as duplicated.
+
 1. Header (assembled by the server — you provide the data fields below)
 2. Introduction
 3. Facts
